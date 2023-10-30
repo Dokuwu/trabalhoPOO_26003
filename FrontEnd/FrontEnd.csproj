@@ -50,6 +50,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ALoja\ALoja.csproj">
+      <Project>{940c00ed-97ee-4c91-90b0-51446a9c547d}</Project>
+      <Name>ALoja</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OCliente\OCliente.csproj">
+      <Project>{49ac8426-ce1d-410e-99c2-0abc99eeb70b}</Project>
+      <Name>OCliente</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OProduto\OProduto.csproj">
       <Project>{1256b033-2149-4530-a08d-4058d7aa2d37}</Project>
       <Name>OProduto</Name>

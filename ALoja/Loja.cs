@@ -5,6 +5,7 @@
 *   <date>2023 10/25/2023 2:22:54 PM</date>
 *	<description></description>
 **/
+using OCliente;
 using OProduto;
 
 namespace trabalhoPOO_26003
@@ -14,7 +15,7 @@ namespace trabalhoPOO_26003
         #region ATRIBUTOS
         const int MAX = 100;
         string nome;
-        string local;
+        Morada morada;
         Produto[] produtos;
         Marca[] marcas;
         Categoria[] categorias;
@@ -30,29 +31,23 @@ namespace trabalhoPOO_26003
         public Loja()
         {
             nome = "";
-            local = "";
+            morada = new Morada();
             produtos = new Produto[MAX];
-            for(int i = 0; i < produtos.Length; i++) produtos[i] = new Produto();
             marcas = new Marca[MAX];
-            for(int i = 0;i < marcas.Length;i++) marcas[i] = new Marca();
             categorias = new Categoria[MAX];
-            for( int i = 0;i<categorias.Length ; i++) categorias[i] = new Categoria();
         }
         /// <summary>
-        /// Construtor que recebe duas strings, um para o noem e outro para o local
+        /// Construtor que recebe duas strings, um para o nome outro para o morada
         /// </summary>
         /// <param name="lNome"></param>
-        /// <param name="lLocal"></param>
-        public Loja(string lNome, string lLocal)
+        /// <param name="lMorada"></param>
+        public Loja(string lNome, Morada lMorada)
         {
             nome = lNome;
-            local = lLocal;
+            morada = lMorada;
             produtos = new Produto[MAX];
-            for (int i = 0; i < produtos.Length; i++) produtos[i] = new Produto();
             marcas = new Marca[MAX];
-            for (int i = 0; i < marcas.Length; i++) marcas[i] = new Marca();
             categorias = new Categoria[MAX];
-            for (int i = 0; i < categorias.Length; i++) categorias[i] = new Categoria();
         }
 
         #endregion

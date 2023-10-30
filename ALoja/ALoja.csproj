@@ -41,10 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Campanha.cs" />
     <Compile Include="Loja.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\OCliente\OCliente.csproj">
+      <Project>{49ac8426-ce1d-410e-99c2-0abc99eeb70b}</Project>
+      <Name>OCliente</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OProduto\OProduto.csproj">
       <Project>{1256b033-2149-4530-a08d-4058d7aa2d37}</Project>
       <Name>OProduto</Name>

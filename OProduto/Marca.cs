@@ -27,6 +27,10 @@ namespace OProduto
         {
             nome = "";
         }
+        /// <summary>
+        /// Construtor que recebe um nome
+        /// </summary>
+        /// <param name="mNome"></param>
         public Marca(string mNome)
         {
             nome = mNome;
@@ -34,29 +38,55 @@ namespace OProduto
         #endregion
 
         #region PROPRIEDADES
-
+        /// <summary>
+        /// Metodo de manipulação do parametro nome
+        /// </summary>
+        public string Nome
+        {
+            get { return nome; }
+            set { nome = value; }
+        }
         #endregion
 
         #region OPERADORES
+        /// <summary>
+        /// Redefinição do operador ==
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
         public static bool operator ==(Marca a, Marca b)
         {
-            if(a.Equals(b)) return true;
+            if (a.Equals(b)) return true;
             return false;
         }
-
-        public static bool operator !=(Marca a,Marca b)
+        /// <summary>
+        /// Redefinição do operador !=
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns>True ou False</returns>
+        public static bool operator !=(Marca a, Marca b)
         {
-            if(!(a.Equals(b))) return true;
+            if (!(a.Equals(b))) return true;
             return false;
         }
         #endregion
 
         #region Overrides
+        /// <summary>
+        /// Redefinição do ToString
+        /// </summary>
+        /// <returns>String</returns>
         public override string ToString()
         {
             return string.Format("Nome da marca: {0}", nome);
         }
-
+        /// <summary>
+        /// Redefinição do Equals
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>True ou False</returns>
         public override bool Equals(object obj)
         {
             if (obj is Marca)
