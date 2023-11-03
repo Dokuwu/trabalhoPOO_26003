@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("OCliente")]
+[assembly: AssemblyTitle("AsPessoas")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("LG")]
-[assembly: AssemblyProduct("OCliente")]
+[assembly: AssemblyProduct("AsPessoas")]
 [assembly: AssemblyCopyright("Copyright © LG 2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("49ac8426-ce1d-410e-99c2-0abc99eeb70b")]
+[assembly: Guid("d4f2d7a7-447d-4560-b8cd-7014ae51f6bb")]
 
 // Version information for an assembly consists of the following four values:
 //

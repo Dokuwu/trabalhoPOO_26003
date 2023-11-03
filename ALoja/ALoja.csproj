@@ -46,14 +46,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OCliente\OCliente.csproj">
-      <Project>{49ac8426-ce1d-410e-99c2-0abc99eeb70b}</Project>
-      <Name>OCliente</Name>
+    <ProjectReference Include="..\AsPessoas\AsPessoas.csproj">
+      <Project>{d4f2d7a7-447d-4560-b8cd-7014ae51f6bb}</Project>
+      <Name>AsPessoas</Name>
     </ProjectReference>
     <ProjectReference Include="..\OProduto\OProduto.csproj">
       <Project>{1256b033-2149-4530-a08d-4058d7aa2d37}</Project>
       <Name>OProduto</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Loja.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,7 +1,7 @@
 ﻿using System;
 using OProduto;
+using OCliente;
 using ALoja;
-using AsPessoas;
 
 namespace FrontEnd
 {

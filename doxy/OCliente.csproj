@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{797183E3-9424-4DF5-B048-22C6CE67A305}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>FrontEnd</RootNamespace>
-    <AssemblyName>FrontEnd</AssemblyName>
+    <ProjectGuid>{49AC8426-CE1D-410E-99C2-0ABC99EEB70B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OCliente</RootNamespace>
+    <AssemblyName>OCliente</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,26 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Cliente.cs" />
+    <Compile Include="Morada.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="Geral.cd" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ALoja\ALoja.csproj">
-      <Project>{940c00ed-97ee-4c91-90b0-51446a9c547d}</Project>
-      <Name>ALoja</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AsPessoas\AsPessoas.csproj">
-      <Project>{d4f2d7a7-447d-4560-b8cd-7014ae51f6bb}</Project>
-      <Name>AsPessoas</Name>
-    </ProjectReference>
     <ProjectReference Include="..\OProduto\OProduto.csproj">
       <Project>{1256b033-2149-4530-a08d-4058d7aa2d37}</Project>
       <Name>OProduto</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Cliente.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{49AC8426-CE1D-410E-99C2-0ABC99EEB70B}</ProjectGuid>
+    <ProjectGuid>{1256B033-2149-4530-A08D-4058D7AA2D37}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OCliente</RootNamespace>
-    <AssemblyName>OCliente</AssemblyName>
+    <RootNamespace>OProduto</RootNamespace>
+    <AssemblyName>OProduto</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,15 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cliente.cs" />
-    <Compile Include="Morada.cs" />
+    <Compile Include="Categoria.cs" />
+    <Compile Include="Marca.cs" />
+    <Compile Include="Produto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OProduto\OProduto.csproj">
-      <Project>{1256b033-2149-4530-a08d-4058d7aa2d37}</Project>
-      <Name>OProduto</Name>
-    </ProjectReference>
+    <None Include="Produto.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
