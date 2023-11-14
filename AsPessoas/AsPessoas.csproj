@@ -45,6 +45,7 @@
     <Compile Include="Funcionario.cs" />
     <Compile Include="Morada.cs" />
     <Compile Include="Pessoa.cs" />
+    <Compile Include="Pessoas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

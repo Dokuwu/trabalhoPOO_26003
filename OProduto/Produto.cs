@@ -53,7 +53,7 @@ namespace OProduto
             nome = pNome;
             descrição = pDescrição;
             marca = pMarca;
-            categoria = new Categoria();
+            categoria = pCategoria;
             stock = pStock;
             valorOriginal = pValor;
             valorDesconto = pValor;
@@ -62,46 +62,72 @@ namespace OProduto
         #endregion
 
         #region PROPRIEDADES
+        /// <summary>
+        /// Metodo de manipulação de nome
+        /// </summary>
         public string Nome
         {
             get { return nome; }
             set { nome = value; }
         }
+
+        /// <summary>
+        /// Metodo de manipulação de descrição
+        /// </summary>
         public string Descrição
         {
             get { return descrição; }
             set { descrição = value; }
         }
 
+        /// <summary>
+        /// Metodo de manipulação de marca
+        /// </summary>
         public Marca Marca
         {
             get { return marca; }
             set { marca = value; }
         }
 
+        /// <summary>
+        /// Metodo de manipulação de categoria
+        /// </summary>
         public Categoria Categoria
         {
             get { return categoria; }
             set { categoria = value; }
         }
 
+        /// <summary>
+        /// Metodo de manipulação de stock
+        /// </summary>
         public int Stock
         {
             get { return stock; }
             set { stock = value; }
         }
 
+        /// <summary>
+        /// Metodo de manipulação de valorOriginal
+        /// </summary>
         public float ValorOriginal
         {
             get { return valorOriginal; }
             set { valorOriginal = value; }
         }
 
+        /// <summary>
+        /// Metodo de manipulação de valorDesconto
+        /// </summary>
         public float ValorDesconto
         {
             get { return valorDesconto; }
             set { valorDesconto = value; }
         }
+
+        /// <summary>
+        /// Metodo de manipulação de garantiaAnos
+        /// </summary>
         public int GarantiaAnos
         {
             get { return garantiaAnos; }
@@ -116,7 +142,7 @@ namespace OProduto
         /// </summary>
         /// <param name="a"></param>
         /// <param name="b"></param>
-        /// <returns></returns>
+        /// <returns>True or False</returns>
         public static bool operator ==(Produto a, Produto b)
         {
             if (a.Equals(b)) return true;
@@ -154,10 +180,14 @@ namespace OProduto
             if (obj is Produto)
             {
                 Produto a = (Produto)obj;
-                if (a.Nome == nome) return true;
+                if (a.Nome == nome && a.Marca == marca && a.categoria == categoria) return true;
             }
             return false;
         }
+
+        #endregion
+
+        #region OUTROS METODOS
 
         #endregion
 
@@ -170,10 +200,6 @@ namespace OProduto
 
         }
         #endregion
-        #region OUTROS METODOS
-
-        #endregion
-
         #endregion
     }
 }

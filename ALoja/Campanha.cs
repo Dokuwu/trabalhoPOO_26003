@@ -5,8 +5,8 @@
 *   <date>2023 10/30/2023 12:33:59 PM</date>
 *	<description></description>
 **/
-using System;
 using OProduto;
+using System;
 
 namespace ALoja
 {
@@ -50,15 +50,96 @@ namespace ALoja
         #endregion
 
         #region PROPRIEDADES
+        /// <summary>
+        /// Metodo de manipulação de nome
+        /// </summary>
+        public string Nome
+        {
+            get { return nome; }
+            set { nome = value; }
+        }
 
+        /// <summary>
+        /// Metodo de manipulação de DataInicio
+        /// </summary>
+        public DateTime DataInicio
+        {
+            get { return dataInicio; }
+            set { dataInicio = value; }
+        }
+        /// <summary>
+        /// Metodo de manipulação de DataFim
+        /// </summary>
+
+        public DateTime DataFim
+        {
+            get { return dataFim; }
+            set { dataFim = value; }
+        }
+
+        /// <summary>
+        /// Metodo de manipulação de descontoPercent
+        /// </summary>
+        public int DescontoPercent
+        {
+            get { return descontoPercent; }
+            set { descontoPercent = value; }
+        }
+        /// <summary>
+        /// Metodo de manipulação de produtos
+        /// </summary>
+        public Produto[] Produtos { get { return (Produto[])produtos.Clone(); } }
         #endregion
 
         #region OPERADORES
-
+        /// <summary>
+        /// Redefinição do operador ==
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns>True or False</returns>
+        public static bool operator ==(Campanha a, Campanha b)
+        {
+            if (a.Nome == b.Nome && a.DataInicio == b.DataInicio && a.DataFim == b.DataFim && a.DescontoPercent == b.DescontoPercent) return true;
+            return false;
+        }
+        /// <summary>
+        /// Redefinição do operador !=
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns>True ou False</returns>
+        public static bool operator !=(Campanha a, Campanha b)
+        {
+            if (!(a == b)) return true;
+            return false;
+        }
         #endregion
 
-        #region OVERRIDES
-
+        #region OVERRIDES      
+        /// <summary>
+        /// Redefinição do ToString
+        /// </summary>
+        /// <returns>String</returns>
+        public override string ToString()
+        {
+            ///falta colocar para mostrar produtos
+            return string.Format("Nome da Campanha: {0}\nData Inicio: {1}\nData Fim: {2}\nDesconto: {3}\nProdutos:", nome, dataInicio, dataFim, descontoPercent);
+        }
+        /// <summary>
+        /// Redefinição do Equals
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>True ou False</returns>
+        public override bool Equals(object obj)
+        {
+            if (obj is Campanha)
+            {
+                Campanha a = (Campanha)obj;
+                if (a == this) return true;
+            }
+            return false;
+        }
         #endregion
 
         #region OUTROS METODOS

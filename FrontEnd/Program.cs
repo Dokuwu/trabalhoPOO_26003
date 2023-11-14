@@ -9,6 +9,7 @@ namespace FrontEnd
     {
         static void Main(string[] args)
         {
+            IO b = new IO();
             Categoria a = new Categoria("pc");
             a.AdicionarSubCategoria(a, "pc", new Categoria("Portatil"));
             a.AdicionarSubCategoria(a, "Portatil", new Categoria("LG"));
@@ -17,13 +18,13 @@ namespace FrontEnd
             a.AdicionarSubCategoria(a, "pc", new Categoria("Torre"));
             a.AdicionarSubCategoria(a, "Torre", new Categoria("Ryzen"));
             a.AdicionarSubCategoria(a, "Gat", new Categoria("Kat"));
-            a.MostraCategoria(a);
- 
+            b.MostraCategoria(a);
+            
             Produto produto = new Produto();
             produto.Marca = new Marca("ola");
             Console.WriteLine(produto.Marca.Nome.ToString());
             Console.WriteLine("\n");
-            Cliente client = new Cliente("Olavo",123456789,259999259,(float)12.02,new Morada("ABOBORA 12","Rua das Azeitos",2555212));
+            Cliente client = new Cliente("Olavo",123456789,259999259,(float) 12.02,new Morada("ABOBORA 12","Rua das Azeitos",2555212));
             Console.WriteLine(client);
         }
     }

@@ -41,8 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AsCampanhas.cs" />
     <Compile Include="Campanha.cs" />
+    <Compile Include="AsCategorias.cs" />
     <Compile Include="Loja.cs" />
+    <Compile Include="AsMarcas.cs" />
+    <Compile Include="OsProdutos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

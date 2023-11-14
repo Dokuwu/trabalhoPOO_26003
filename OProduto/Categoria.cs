@@ -153,21 +153,6 @@ namespace OProduto
             }
 
         }
-
-        /// <summary>
-        /// Metodo par mostrar uma categoria e suas subCategorias
-        /// </summary>
-        public void MostraCategoria(Categoria categoria, int tabs = 0)
-        {
-            for (int i = 0; i < tabs; i++) Console.Write("\t");
-            Console.WriteLine(categoria.ToString());
-            tabs++;
-            for (int i = 0; i < subCategorias.Length; i++)
-            {
-                if (categoria.subCategorias[i] is null) return;
-                MostraCategoria(categoria.subCategorias[i], tabs);
-            }
-        }
         #endregion
 
         #region DESCONSTRUTOR

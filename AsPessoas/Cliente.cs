@@ -33,7 +33,14 @@ namespace AsPessoas
             Morada = new Morada();
             carrinho = new Produto[MAXPRODUTO];
         }
-
+        /// <summary>
+        /// Construtor para construir cliente total
+        /// </summary>
+        /// <param name="cNome"></param>
+        /// <param name="cNif"></param>
+        /// <param name="cTelefone"></param>
+        /// <param name="cSaldo"></param>
+        /// <param name="cMorada"></param>
         public Cliente(string cNome, int cNif, int cTelefone, float cSaldo, Morada cMorada)
         {
             Nome = cNome;
@@ -96,7 +103,7 @@ namespace AsPessoas
         /// <summary>
         /// Redefinição do metodo ToString
         /// </summary>
-        /// <returns></returns>
+        /// <returns>True or False</returns>
         public override string ToString()
         {
             return string.Format("Nome: {0}\nNIF: {1}\nTelefone: {2}\nSaldo: {3}$\n{4}", Nome, Nif, Telefone, saldo, Morada.ToString());
@@ -105,7 +112,7 @@ namespace AsPessoas
         /// Redefinição do metodo Equals
         /// </summary>
         /// <param name="obj"></param>
-        /// <returns></returns>
+        /// <returns>True or False</returns>
         public override bool Equals(object obj)
         {
             if (obj is Cliente)
