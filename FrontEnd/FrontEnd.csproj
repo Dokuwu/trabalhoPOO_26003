@@ -60,6 +60,10 @@
       <Project>{d4f2d7a7-447d-4560-b8cd-7014ae51f6bb}</Project>
       <Name>AsPessoas</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GereDados\GereDados.csproj">
+      <Project>{a7276729-c088-4499-a22b-c5e32f38ae72}</Project>
+      <Name>GereDados</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OProduto\OProduto.csproj">
       <Project>{1256b033-2149-4530-a08d-4058d7aa2d37}</Project>
       <Name>OProduto</Name>

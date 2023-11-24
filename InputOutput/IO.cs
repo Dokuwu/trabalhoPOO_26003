@@ -8,7 +8,7 @@
 
 using System;
 using OProduto;
-using GereDados;
+using ALoja;
 using AsPessoas;
 
 namespace FrontEnd
@@ -19,13 +19,14 @@ namespace FrontEnd
         /// <summary>
         /// Metodo para mostrar uma categoria e suas subCategorias
         /// </summary>
-        public static void MostraCategoria(Categoria categoria, int tabs = 0)
+        public void MostraCategoria(Categoria categoria, int tabs = 0)
         {
             for (int i = 0; i < tabs; i++) Console.Write("\t");
             Console.WriteLine(categoria.ToString());
             tabs++;
-            for (int i = 0; i < categoria.SubCategorias.Count; i++)
+            for (int i = 0; i < categoria.SubCategorias.Length; i++)
             {
+                if (categoria.SubCategorias[i] is null) continue;
                 MostraCategoria(categoria.SubCategorias[i], tabs);
             }
         }

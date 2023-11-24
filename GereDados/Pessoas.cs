@@ -5,15 +5,16 @@
 *   <date>2023 11/7/2023 10:34:56 PM</date>
 *	<description></description>
 **/
+using AsPessoas;
 
-namespace AsPessoas
+namespace GereDados
 {
     public class Pessoas
     {
         #region ATRIBUTOS
         const int MAX = 20;
-        Cliente[] clientes;
-        Funcionario[] funcionarios;
+        static Cliente[] clientes;
+        static Funcionario[] funcionarios;
         #endregion
 
         #region COMPORTAMENTO
@@ -22,7 +23,7 @@ namespace AsPessoas
         /// <summary>
         /// Construtor por omissão
         /// </summary>
-        public Pessoas()
+        static Pessoas()
         {
             clientes = new Cliente[MAX];
             funcionarios = new Funcionario[MAX];

@@ -16,8 +16,8 @@ namespace OProduto
         Marca marca;
         Categoria categoria;
         int stock;
-        float valorOriginal;
-        float valorDesconto;
+        double valorOriginal;
+        double valorDesconto;
         int garantiaAnos;
         #endregion
 
@@ -48,7 +48,7 @@ namespace OProduto
         /// <param name="pStock"></param>
         /// <param name="pValor"></param>
         /// <param name="pGarantia"></param>
-        public Produto(string pNome, string pDescrição, Marca pMarca, Categoria pCategoria, int pStock, float pValor, int pGarantia)
+        public Produto(string pNome, string pDescrição, Marca pMarca, Categoria pCategoria, int pStock, double pValor, int pGarantia)
         {
             nome = pNome;
             descrição = pDescrição;
@@ -110,7 +110,7 @@ namespace OProduto
         /// <summary>
         /// Metodo de manipulação de valorOriginal
         /// </summary>
-        public float ValorOriginal
+        public double ValorOriginal
         {
             get { return valorOriginal; }
             set { valorOriginal = value; }
@@ -119,7 +119,7 @@ namespace OProduto
         /// <summary>
         /// Metodo de manipulação de valorDesconto
         /// </summary>
-        public float ValorDesconto
+        public double ValorDesconto
         {
             get { return valorDesconto; }
             set { valorDesconto = value; }

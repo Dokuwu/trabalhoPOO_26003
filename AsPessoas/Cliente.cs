@@ -14,7 +14,7 @@ namespace AsPessoas
     {
         #region ATRIBUTOS
         const int MAXPRODUTO = 20;
-        float saldo;
+        double saldo;
         Produto[] carrinho;
         #endregion
 
@@ -41,7 +41,7 @@ namespace AsPessoas
         /// <param name="cTelefone"></param>
         /// <param name="cSaldo"></param>
         /// <param name="cMorada"></param>
-        public Cliente(string cNome, int cNif, int cTelefone, float cSaldo, Morada cMorada)
+        public Cliente(string cNome, int cNif, int cTelefone, double cSaldo, Morada cMorada)
         {
             Nome = cNome;
             Nif = cNif;
@@ -58,7 +58,7 @@ namespace AsPessoas
         /// <summary>
         /// Metodo de manipulação de saldo
         /// </summary>
-        public float Saldo
+        public double Saldo
         {
             get { return saldo; }
             set { saldo = value; }

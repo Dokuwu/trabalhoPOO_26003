@@ -1,7 +1,7 @@
-﻿using System;
-using OProduto;
-using ALoja;
+﻿using ALoja;
 using AsPessoas;
+using OProduto;
+using System;
 
 namespace FrontEnd
 {
@@ -9,7 +9,7 @@ namespace FrontEnd
     {
         static void Main(string[] args)
         {
-            IO b = new IO();
+            Loja loja = new Loja("Olá Shop",new Morada("Barcelos","Rua da Formiga",4755212));
             Categoria a = new Categoria("pc");
             a.AdicionarSubCategoria(a, "pc", new Categoria("Portatil"));
             a.AdicionarSubCategoria(a, "Portatil", new Categoria("LG"));
@@ -18,13 +18,13 @@ namespace FrontEnd
             a.AdicionarSubCategoria(a, "pc", new Categoria("Torre"));
             a.AdicionarSubCategoria(a, "Torre", new Categoria("Ryzen"));
             a.AdicionarSubCategoria(a, "Gat", new Categoria("Kat"));
-            b.MostraCategoria(a);
-            
+            IO.MostraCategoria(a);
+
             Produto produto = new Produto();
             produto.Marca = new Marca("ola");
             Console.WriteLine(produto.Marca.Nome.ToString());
             Console.WriteLine("\n");
-            Cliente client = new Cliente("Olavo",123456789,259999259,(float) 12.02,new Morada("ABOBORA 12","Rua das Azeitos",2555212));
+            Cliente client = new Cliente("Olavo", 123456789, 259999259, 12.02, new Morada("ABOBORA 12", "Rua das Azeitos", 2555212));
             Console.WriteLine(client);
         }
     }

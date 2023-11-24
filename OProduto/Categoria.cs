@@ -7,6 +7,8 @@
 **/
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace OProduto
 {
@@ -16,9 +18,8 @@ namespace OProduto
     public class Categoria
     {
         #region ATRIBUTOS
-        const int MAXSUBCAT = 10;
         string nome;
-        Categoria[] subCategorias;
+        List<Categoria> subCategorias;
         #endregion
 
         #region COMPORTAMENTO
@@ -30,7 +31,7 @@ namespace OProduto
         public Categoria()
         {
             nome = "";
-            subCategorias = new Categoria[MAXSUBCAT];
+            subCategorias = new List<Categoria>();
         }
         /// <summary>
         /// Construtor que recebe uma string para o nome da categoria
@@ -39,7 +40,7 @@ namespace OProduto
         public Categoria(string cNome)
         {
             nome = cNome;
-            subCategorias = new Categoria[MAXSUBCAT];
+            subCategorias = new List<Categoria>();
         }
 
         #endregion
@@ -54,9 +55,9 @@ namespace OProduto
             set { nome = value; }
         }
 
-        public Categoria[] SubCategorias
+        public List<Categoria> SubCategorias
         {
-            get { return (Categoria[])subCategorias.Clone(); }
+            get { return subCategorias.ToList(); }
         }
 
         #endregion
@@ -128,24 +129,15 @@ namespace OProduto
             bool boolian = false;
             if (categoriaPai.nome == nomeCategoria)
             {
-                for (int i = 0; i < categoriaPai.subCategorias.Length; i++)
-                {
-                    ///temos o problema da array estiver toda cheia, nao coloca a categoria. Isto pode ser resolvido ao utilizar uma estrutura dinamica em vem de estatica
-                    if (categoriaPai.subCategorias[i] is null)
-                    {
-                        categoriaPai.subCategorias[i] = categoriaNova;
-                        return true;
-                    }
-                }
+                categoriaPai.subCategorias.Add(categoriaNova);
                 return true;
             }
             else
             {
-                for (int i = 0; i < categoriaPai.subCategorias.Length; i++)
+                for (int i = 0; i < categoriaPai.subCategorias.Count; i++)
                 {
 
                     if (boolian == true) return boolian;
-                    else if (categoriaPai.subCategorias[i] is null) return boolian;
                     else if (categoriaPai.subCategorias[i].nome == nomeCategoria) boolian = AdicionarSubCategoria(categoriaPai.subCategorias[i], nomeCategoria, categoriaNova);
                     else boolian = AdicionarSubCategoria(categoriaPai.subCategorias[i], nomeCategoria, categoriaNova);
                 }

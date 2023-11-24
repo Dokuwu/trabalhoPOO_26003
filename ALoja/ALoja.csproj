@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GereDados">
+      <HintPath>..\GereDados\bin\Debug\GereDados.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,12 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AsCampanhas.cs" />
     <Compile Include="Campanha.cs" />
-    <Compile Include="AsCategorias.cs" />
     <Compile Include="Loja.cs" />
-    <Compile Include="AsMarcas.cs" />
-    <Compile Include="OsProdutos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

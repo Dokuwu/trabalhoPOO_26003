@@ -7,18 +7,19 @@
 **/
 using OProduto;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ALoja
 {
     public class Campanha
     {
         #region ATRIBUTOS
-        const int MAXPRODUTO = 20;
         string nome;
         DateTime dataInicio;
         DateTime dataFim;
         int descontoPercent;
-        Produto[] produtos;
+        List<Produto> produtos;
         #endregion
 
         #region COMPORTAMENTO
@@ -33,7 +34,7 @@ namespace ALoja
             dataInicio = DateTime.Now;
             dataFim = DateTime.Now;
             descontoPercent = 0;
-            produtos = new Produto[MAXPRODUTO];
+            produtos = new List<Produto>();
         }
 
         public Campanha(string cNome, DateTime cDataInicio, DateTime cDataFim, int cDescontoPercent)
@@ -42,7 +43,7 @@ namespace ALoja
             dataInicio = cDataInicio;
             dataFim = cDataFim;
             descontoPercent = cDescontoPercent;
-            produtos = new Produto[MAXPRODUTO];
+            produtos = new List<Produto>();
             ///função alterar preço desconto
         }
 
@@ -88,7 +89,7 @@ namespace ALoja
         /// <summary>
         /// Metodo de manipulação de produtos
         /// </summary>
-        public Produto[] Produtos { get { return (Produto[])produtos.Clone(); } }
+        public List<Produto> Produtos { get { return produtos.ToList(); } }
         #endregion
 
         #region OPERADORES
@@ -124,7 +125,7 @@ namespace ALoja
         public override string ToString()
         {
             ///falta colocar para mostrar produtos
-            return string.Format("Nome da Campanha: {0}\nData Inicio: {1}\nData Fim: {2}\nDesconto: {3}\nProdutos:", nome, dataInicio, dataFim, descontoPercent);
+            return string.Format("Nome da Campanha: {0}\nData Inicio: {1}\nData Fim: {2}\nDesconto: {3}", nome, dataInicio, dataFim, descontoPercent);
         }
         /// <summary>
         /// Redefinição do Equals

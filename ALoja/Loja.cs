@@ -5,9 +5,10 @@
 *   <date>2023 10/25/2023 2:22:54 PM</date>
 *	<description></description>
 **/
+
 using AsPessoas;
-using OProduto;
-using System;
+using GereDados;
+
 
 namespace ALoja
 {
