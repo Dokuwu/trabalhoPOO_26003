@@ -6,8 +6,11 @@
 *	<description></description>
 **/
 
+using System;
+
 namespace AsPessoas
 {
+    [Serializable]
     public class Morada
     {
         #region ATRIBUTOS

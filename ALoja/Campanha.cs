@@ -12,6 +12,7 @@ using System.Linq;
 
 namespace ALoja
 {
+    [Serializable]
     public class Campanha
     {
         #region ATRIBUTOS

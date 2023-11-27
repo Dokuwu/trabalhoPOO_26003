@@ -6,11 +6,11 @@
 *	<description></description>
 **/
 
+using System;
+
 namespace OProduto
 {
-    /// <summary>
-    /// Classe que define as marcas 
-    /// </summary>
+    [Serializable]
     public class Marca
     {
         #region ATRIBUTOS

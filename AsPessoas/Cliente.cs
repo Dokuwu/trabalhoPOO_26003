@@ -7,15 +7,19 @@
 **/
 
 using OProduto;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace AsPessoas
 {
+    [Serializable]
     public class Cliente : Pessoa
     {
         #region ATRIBUTOS
-        const int MAXPRODUTO = 20;
         double saldo;
-        Produto[] carrinho;
+        [NonSerialized]
+        List<Produto> carrinho;
         #endregion
 
         #region COMPORTAMENTO
@@ -31,7 +35,7 @@ namespace AsPessoas
             Telefone = -1;
             saldo = -1;
             Morada = new Morada();
-            carrinho = new Produto[MAXPRODUTO];
+            carrinho = new List<Produto>();
         }
         /// <summary>
         /// Construtor para construir cliente total
@@ -48,7 +52,7 @@ namespace AsPessoas
             Telefone = cTelefone;
             saldo = cSaldo;
             Morada = cMorada;
-            carrinho = new Produto[MAXPRODUTO];
+            carrinho = new List<Produto>();
         }
 
         #endregion
@@ -67,9 +71,9 @@ namespace AsPessoas
         /// <summary>
         /// Metodo de manipulação de carrinho
         /// </summary>
-        public Produto[] Carinho
+        public List<Produto> Carrinho
         {
-            get { return (Produto[])carrinho.Clone(); }
+            get { return carrinho.ToList(); }
         }
         #endregion
 
@@ -127,56 +131,55 @@ namespace AsPessoas
 
         #region OUTROS METODOS
         /// <summary>
-        /// Metodo para adicionar um produto no carrinho do cliente
+        /// Metodo que verifica se ja um produto no carrinho
         /// </summary>
         /// <param name="produto"></param>
-        public void ColocarCarrinho(Produto produto)
+        /// <returns>True or False</returns>
+        public bool ExisteCarrinho(Produto produto)
         {
-            for (int i = 0; i < carrinho.Length; i++)
-            {
-                if (carrinho[i] is null)
-                {
-                    carrinho[i] = produto;
-                    return;
-                }
-                if (carrinho[i] == produto) return;
-            }
+            foreach (Produto p in carrinho)
+                if (produto.Equals(p)) return true;
+            return false;
         }
         /// <summary>
-        /// Função que remove um produto do carrinho 
+        /// Metodo que adiciona um produto ao carrinho
         /// </summary>
         /// <param name="produto"></param>
-        public void RetirarCarrinho(Produto produto)
+        /// <returns>True or False</returns>
+        public bool AdicionarCarinho(Produto produto)
         {
-            for (int i = 0; i < carrinho.Length; i++)
+            if (!(ExisteCarrinho(produto)))
             {
-                if (carrinho[i] is null)
-                {
-                    continue;
-                }
-                if (carrinho[i] == produto)
-                {
-                    carrinho[i] = null;
-                }
+                carrinho.Add(produto);
+                return true;
             }
+            return false;
+
         }
         /// <summary>
-        /// Função que esvazia o carrinho
+        /// Metodo que remove um produto do carrinho
         /// </summary>
-        public void EsvaziarCarrinho()
+        /// <param name="produto"></param>
+        /// <returns>True or False</returns>
+        public bool RemoverCarrinho(Produto produto)
         {
-            for (int i = 0; i < carrinho.Length; i++)
-            {
-                if (carrinho[i] is null)
-                {
-                    continue;
-                }
-                else
-                {
-                    carrinho[i] = null;
-                }
-            }
+            if (carrinho.Remove(produto)) return true;
+            return false;
         }
+        /// <summary>
+        /// Metodo que calcula o valor de um carriho
+        /// </summary>
+        /// <returns>Double</returns>
+        public double ValorCarrinho()
+        {
+            double valor = 0;
+            foreach (Produto p in carrinho)
+            {
+                valor += p.ValorDesconto;
+            }
+            return valor;
+        }
+
         #endregion
 
         #region DESCONSTRUTOR

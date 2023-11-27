@@ -7,6 +7,7 @@
 **/
 using AsPessoas;
 using OProduto;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -14,6 +15,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace GereDados
 {
+    [Serializable]
     public class Pessoas
     {
         #region ATRIBUTOS

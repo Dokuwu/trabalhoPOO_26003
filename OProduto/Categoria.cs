@@ -12,9 +12,7 @@ using System.Linq;
 
 namespace OProduto
 {
-    /// <summary>
-    /// Classe que define as categoria dos produtos
-    /// </summary>
+    [Serializable]
     public class Categoria
     {
         #region ATRIBUTOS

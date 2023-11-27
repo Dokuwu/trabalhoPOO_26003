@@ -6,11 +6,13 @@
 *	<description></description>
 **/
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using ALoja;
 namespace OProduto
 {
+    [Serializable]
     public class Produto
     {
         #region ATRIBUTOS
@@ -20,6 +22,7 @@ namespace OProduto
         List<Categoria> categoria;
         int stock;
         double valorOriginal;
+        [NonSerialized]
         double valorDesconto;
         int garantiaAnos;
         #endregion

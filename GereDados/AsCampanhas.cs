@@ -15,6 +15,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace GereDados
 {
+    [Serializable]
     public class AsCampanhas
     {
         #region ATRIBUTOS
