@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Text.RegularExpressions;
 
 namespace GereDados
 {
@@ -31,7 +32,9 @@ namespace GereDados
         }
 
         #endregion
-
+        /// <summary>
+        /// Manipulação da lista 
+        /// </summary>
         #region PROPRIEDADES
         public List<Marca> Marcas { get { return (List<Marca>)marcas.ToList(); } }
         #endregion
@@ -48,24 +51,71 @@ namespace GereDados
         #region OUTROS METODOS
 
         #region DADOS
+        /// <summary>
+        /// Metodo que lê um ficheiro e guarda numa lista a informação
+        /// </summary>
+        /// <returns></returns>
         public bool PegaDados()
         {
+            if (!(File.Exists("Marcas.bin"))) return false;
             Stream s = File.Open("Marcas.bin",FileMode.Open,FileAccess.Read);
-            if(s == null) return false;
             BinaryFormatter b = new BinaryFormatter();
             marcas = (List<Marca>)b.Deserialize(s);
             s.Close();
             return true;
         }
-
+        /// <summary>
+        /// Metodo que guarda as informações de uma lista num ficheiro
+        /// </summary>
+        /// <returns></returns>
         public bool GuardaDados()
         {
+            if (!(File.Exists("Marcas.bin"))) return false;
             Stream s = File.Open("Marcas.bin",FileMode.Open, FileAccess.Write);
-            if(s == null) return false;
             BinaryFormatter b = new BinaryFormatter();
             b.Serialize(s, marcas);
             s.Close();
             return true;
+        }
+        #endregion
+
+
+        #region LISTA
+        /// <summary>
+        /// Metodo que verifica se ja existe uma marca numa lista
+        /// </summary>
+        /// <param name="marca"></param>
+        /// <returns>True or False</returns>
+        public bool ExisteMarca(Marca marca)
+        {
+            foreach (Marca c in marcas)
+                if (marcas.Equals(c)) return true;
+            return false;
+        }
+        /// <summary>
+        /// Metodo que adiciona uma marca numa lista
+        /// </summary>
+        /// <param name="marca"></param>
+        /// <returns>True or False</returns>
+        public bool AdicionarMarca(Marca marca)
+        {
+            if (!(ExisteMarca(marca)))
+            {
+                marcas.Add(marca);
+                return true;
+            }
+            return false;
+
+        }
+        /// <summary>
+        /// Metodo que remove uma marca
+        /// </summary>
+        /// <param name="marca"></param>
+        /// <returns>True or False</returns>
+        public bool RemoverMarca(Marca marca)
+        {
+            if (marcas.Remove(marca)) return true;
+            return false;
         }
         #endregion
 

@@ -31,6 +31,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ALoja, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ALoja\bin\Debug\ALoja.dll</HintPath>
+    </Reference>
+    <Reference Include="AsPessoas, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AsPessoas\bin\Debug\AsPessoas.dll</HintPath>
+    </Reference>
+    <Reference Include="OProduto, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\OProduto\bin\Debug\OProduto.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,20 +59,6 @@
     <Compile Include="OsProdutos.cs" />
     <Compile Include="Pessoas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ALoja\ALoja.csproj">
-      <Project>{940c00ed-97ee-4c91-90b0-51446a9c547d}</Project>
-      <Name>ALoja</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AsPessoas\AsPessoas.csproj">
-      <Project>{d4f2d7a7-447d-4560-b8cd-7014ae51f6bb}</Project>
-      <Name>AsPessoas</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\OProduto\OProduto.csproj">
-      <Project>{1256b033-2149-4530-a08d-4058d7aa2d37}</Project>
-      <Name>OProduto</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

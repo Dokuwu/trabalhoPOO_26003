@@ -36,7 +36,13 @@ namespace ALoja
             descontoPercent = 0;
             produtos = new List<Produto>();
         }
-
+        /// <summary>
+        /// Construtor que recebe um nome data de inicio e fim e a percentagem do desconto
+        /// </summary>
+        /// <param name="cNome"></param>
+        /// <param name="cDataInicio"></param>
+        /// <param name="cDataFim"></param>
+        /// <param name="cDescontoPercent"></param>
         public Campanha(string cNome, DateTime cDataInicio, DateTime cDataFim, int cDescontoPercent)
         {
             nome = cNome;

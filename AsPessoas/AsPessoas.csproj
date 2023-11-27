@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="OProduto, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\OProduto\bin\Debug\OProduto.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,12 +50,6 @@
     <Compile Include="Morada.cs" />
     <Compile Include="Pessoa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\OProduto\OProduto.csproj">
-      <Project>{1256b033-2149-4530-a08d-4058d7aa2d37}</Project>
-      <Name>OProduto</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Pessoas.cd" />

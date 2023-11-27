@@ -33,6 +33,9 @@ namespace GereDados
         #endregion
 
         #region PROPRIEDADES
+        /// <summary>
+        /// Manipulação da lista 
+        /// </summary>
         public List<Produto> Produtos { get { return produtos.ToList(); } }
         #endregion
 
@@ -48,20 +51,27 @@ namespace GereDados
         #region OUTROS METODOS
 
         #region DADOS
+        /// <summary>
+        /// Metodo que lê um ficheiro e guarda numa lista a informação
+        /// </summary>
+        /// <returns></returns>
         public bool PegaDados()
         {
+            if (!(File.Exists("Produtos.bin"))) return false;
             Stream s = File.Open("Produtos.bin", FileMode.Open, FileAccess.Read);
-            if (s == null) return false;
             BinaryFormatter b = new BinaryFormatter();
             produtos = (List<Produto>)b.Deserialize(s);
             s.Close();
             return true;
         }
-
+        /// <summary>
+        /// Metodo que guarda as informações de uma lista num ficheiro
+        /// </summary>
+        /// <returns></returns>
         public bool GuardaDados()
         {
+            if (!(File.Exists("Produtos.bin"))) return false;
             Stream s = File.Open("Produtos.bin", FileMode.Open, FileAccess.Write);
-            if (s == null) return false;
             BinaryFormatter b = new BinaryFormatter();
             b.Serialize(s, produtos);
             s.Close();
@@ -70,6 +80,44 @@ namespace GereDados
 
         #endregion
 
+        #region LISTA
+        /// <summary>
+        /// Metodo que verifica se ja existe um produto numa lista
+        /// </summary>
+        /// <param name="produto"></param>
+        /// <returns>True or False</returns>
+        public bool ExisteProduto(Produto produto)
+        {
+            foreach (Produto c in produtos)
+                if (produtos.Equals(produto)) return true;
+            return false;
+        }
+        /// <summary>
+        /// Metodo que adiciona um produto numa lista
+        /// </summary>
+        /// <param name="produto"></param>
+        /// <returns>True or False</returns>
+        public bool AdicionarProduto(Produto produto)
+        {
+            if (!(ExisteProduto(produto)))
+            {
+                produtos.Add(produto);
+                return true;
+            }
+            return false;
+
+        }
+        /// <summary>
+        /// Metodo que remove um produto
+        /// </summary>
+        /// <param name="produto"></param>
+        /// <returns>True or False</returns>
+        public bool RemoverProduto(Produto produto)
+        {
+            if (produtos.Remove(produto)) return true;
+            return false;
+        }
+        #endregion
         #endregion
 
         #region DESCONSTRUTOR

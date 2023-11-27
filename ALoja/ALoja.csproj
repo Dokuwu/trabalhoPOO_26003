@@ -31,8 +31,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AsPessoas, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AsPessoas\bin\Debug\AsPessoas.dll</HintPath>
+    </Reference>
     <Reference Include="GereDados">
       <HintPath>..\GereDados\bin\Debug\GereDados.dll</HintPath>
+    </Reference>
+    <Reference Include="OProduto, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\OProduto\bin\Debug\OProduto.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -47,16 +55,6 @@
     <Compile Include="Campanha.cs" />
     <Compile Include="Loja.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AsPessoas\AsPessoas.csproj">
-      <Project>{d4f2d7a7-447d-4560-b8cd-7014ae51f6bb}</Project>
-      <Name>AsPessoas</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\OProduto\OProduto.csproj">
-      <Project>{1256b033-2149-4530-a08d-4058d7aa2d37}</Project>
-      <Name>OProduto</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Loja.cd" />

@@ -6,6 +6,9 @@
 *	<description></description>
 **/
 
+using System.Collections.Generic;
+using System.Linq;
+using ALoja;
 namespace OProduto
 {
     public class Produto
@@ -14,7 +17,7 @@ namespace OProduto
         string nome;
         string descrição;
         Marca marca;
-        Categoria categoria;
+        List<Categoria> categoria;
         int stock;
         double valorOriginal;
         double valorDesconto;
@@ -32,7 +35,7 @@ namespace OProduto
             nome = "";
             descrição = "";
             marca = new Marca();
-            categoria = new Categoria();
+            categoria = new List<Categoria>();
             stock = -1;
             valorOriginal = -1;
             valorDesconto = -1;
@@ -44,16 +47,15 @@ namespace OProduto
         /// <param name="pNome"></param>
         /// <param name="pDescrição"></param>
         /// <param name="pMarca"></param>
-        /// <param name="pCategoria"></param>
         /// <param name="pStock"></param>
         /// <param name="pValor"></param>
         /// <param name="pGarantia"></param>
-        public Produto(string pNome, string pDescrição, Marca pMarca, Categoria pCategoria, int pStock, double pValor, int pGarantia)
+        public Produto(string pNome, string pDescrição, Marca pMarca, int pStock, double pValor, int pGarantia)
         {
             nome = pNome;
             descrição = pDescrição;
             marca = pMarca;
-            categoria = pCategoria;
+            categoria = new List<Categoria>();
             stock = pStock;
             valorOriginal = pValor;
             valorDesconto = pValor;
@@ -92,10 +94,9 @@ namespace OProduto
         /// <summary>
         /// Metodo de manipulação de categoria
         /// </summary>
-        public Categoria Categoria
+        public List<Categoria> Categoria
         {
-            get { return categoria; }
-            set { categoria = value; }
+            get { return categoria.ToList(); }
         }
 
         /// <summary>
@@ -168,7 +169,7 @@ namespace OProduto
         /// <returns>String</returns>
         public override string ToString()
         {
-            return string.Format("Nome do produto: {0}\nDescrição: {1}\nMarca: {2}\nStock: {3}\nValor: {4}\nGarantia (Anos):{5}", nome, descrição, marca.Nome, stock, ValorDesconto, garantiaAnos);
+            return string.Format("Nome do produto: {0}\nDescrição: {1}\nMarca: {2}\nStock: {3}\nValor: {4}\nGarantia (Anos):{5}", nome, descrição, stock, ValorDesconto, garantiaAnos); 
         }
         /// <summary>
         /// Redefinição do Equals
@@ -180,7 +181,7 @@ namespace OProduto
             if (obj is Produto)
             {
                 Produto a = (Produto)obj;
-                if (a.Nome == nome && a.Marca == marca && a.categoria == categoria) return true;
+                if (a.Nome == nome && a.Marca == marca && garantiaAnos == a.GarantiaAnos) return true;
             }
             return false;
         }
@@ -188,7 +189,7 @@ namespace OProduto
         #endregion
 
         #region OUTROS METODOS
-
+       
         #endregion
 
         #region DESCONSTRUTOR
