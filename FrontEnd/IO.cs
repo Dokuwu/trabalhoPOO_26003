@@ -18,16 +18,7 @@ namespace FrontEnd
     public class IO
     {
         #region PRODUTOS
-        /// <summary>
-        /// Metodo para mostrar um produto e suas categorias
-        /// </summary>
-        public static void MostraProduto(Produto produtos)
-        {
-            Console.WriteLine(produtos.ToString());
-            for (int i = 0;i < produtos.Categoria.Count;i++) {
-                Console.WriteLine(produtos.Categoria[i].ToString());
-            }
-        }
+
         /// <summary>
         /// Metodo para mostrar todos os produtos de uma loja
         /// </summary>
@@ -36,6 +27,7 @@ namespace FrontEnd
         {
             for (int i = 0;i < produtos.Count; i++)
             {
+                Console.WriteLine("-~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~-");
                 Console.WriteLine(produtos[i].ToString());
             }
         }
@@ -51,6 +43,7 @@ namespace FrontEnd
         {
             for (int i = 0; i < categorias.Count; i++)
             {
+                Console.WriteLine("-~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~-");
                 Console.WriteLine(categorias[i].ToString());
             }
         }
@@ -65,6 +58,7 @@ namespace FrontEnd
         {
             for (int i = 0; i < campanhas.Count; i++)
             {
+                Console.WriteLine("**********************************************************************************************");
                 Console.WriteLine(campanhas[i].ToString());
                 MostraProdutos(campanhas[i].Produtos);
             }
@@ -101,7 +95,13 @@ namespace FrontEnd
         /// <param name="funcionarios"></param>
         public static void MostraFuncionarios(List<Funcionario> funcionarios)
         {
-            for(int i = 0;i < funcionarios.Count ; i++) Console.WriteLine(funcionarios[i].ToString());
+
+            for (int i = 0; i < funcionarios.Count; i++)
+            {
+                Console.WriteLine("-~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~-");
+                Console.WriteLine(funcionarios[i].ToString());
+
+            }
         }
         #endregion
 
@@ -112,8 +112,23 @@ namespace FrontEnd
         /// <param name="clientes"></param>
         public static void MostraClientes(List<Cliente> clientes)
         {
-            for(int i = 0;i < clientes.Count ;i++) Console.WriteLine(clientes[i].ToString());
+            for (int i = 0; i < clientes.Count; i++)
+            {
+                Console.WriteLine("-~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~-");
+                Console.WriteLine(clientes[i].ToString());
+
+            }
         }
+        /// <summary>
+        /// Metodo que mostra produtos num carrinho
+        /// </summary>
+        /// <param name="carrnho"></param>
+        public static void MostraCarrinho(List<Produto> carrnho)
+        {
+            foreach(Produto p in carrnho) Console.WriteLine(p.Nome.ToString());
+        }
+
+
         #endregion
 
         #endregion

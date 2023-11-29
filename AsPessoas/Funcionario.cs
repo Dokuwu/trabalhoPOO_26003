@@ -26,14 +26,23 @@ namespace AsPessoas
         public Funcionario()
         {
             Nome = string.Empty;
+            Senha = string.Empty;
             Nif = -1;
             Telefone = -1;
             Morada = new Morada();
         }
-
-        public Funcionario(string fnome,int fnif,int ftelefone,Morada fmorada)
+        /// <summary>
+        /// Construtor total de um funcionario
+        /// </summary>
+        /// <param name="fnome"></param>
+        /// <param name="fsenha"></param>
+        /// <param name="fnif"></param>
+        /// <param name="ftelefone"></param>
+        /// <param name="fmorada"></param>
+        public Funcionario(string fnome,string fsenha,int fnif,int ftelefone,Morada fmorada)
         {
             Nome = fnome;
+            Senha = fsenha;
             Nif = fnif;
             Telefone = ftelefone;
             Morada = fmorada;
@@ -78,7 +87,7 @@ namespace AsPessoas
         /// <returns></returns>
         public override string ToString()
         {
-            return string.Format("Nome: {0}\nNIF: {1}\nTelefone: {2}\nSaldo: {3}$\n{4}", Nome, Nif, Telefone, Morada.ToString());
+            return string.Format("Nome: {0}\nNIF: {1}\nTelefone: {2}\nMorada: {3}$", Nome, Nif, Telefone, Morada.ToString());
         }
         /// <summary>
         /// Redefinição do metodo Equals

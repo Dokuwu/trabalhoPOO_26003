@@ -8,6 +8,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using ALoja;
 namespace OProduto
@@ -19,7 +20,7 @@ namespace OProduto
         string nome;
         string descrição;
         Marca marca;
-        List<Categoria> categoria;
+        Categoria categoria;
         int stock;
         double valorOriginal;
         [NonSerialized]
@@ -38,7 +39,7 @@ namespace OProduto
             nome = "";
             descrição = "";
             marca = new Marca();
-            categoria = new List<Categoria>();
+            categoria = new Categoria();
             stock = -1;
             valorOriginal = -1;
             valorDesconto = -1;
@@ -53,12 +54,12 @@ namespace OProduto
         /// <param name="pStock"></param>
         /// <param name="pValor"></param>
         /// <param name="pGarantia"></param>
-        public Produto(string pNome, string pDescrição, Marca pMarca, int pStock, double pValor, int pGarantia)
+        public Produto(string pNome, string pDescrição, Marca pMarca, Categoria pCategoria, int pStock, double pValor, int pGarantia)
         {
             nome = pNome;
             descrição = pDescrição;
             marca = pMarca;
-            categoria = new List<Categoria>();
+            categoria = pCategoria;
             stock = pStock;
             valorOriginal = pValor;
             valorDesconto = pValor;
@@ -97,9 +98,10 @@ namespace OProduto
         /// <summary>
         /// Metodo de manipulação de categoria
         /// </summary>
-        public List<Categoria> Categoria
+        public Categoria     Categoria
         {
-            get { return categoria.ToList(); }
+            get { return categoria; }
+            set { categoria = value; }
         }
 
         /// <summary>
@@ -172,8 +174,9 @@ namespace OProduto
         /// <returns>String</returns>
         public override string ToString()
         {
-            return string.Format("Nome do produto: {0}\nDescrição: {1}\nMarca: {2}\nStock: {3}\nValor: {4}\nGarantia (Anos):{5}", nome, descrição, stock, ValorDesconto, garantiaAnos); 
+            return string.Format("Nome do produto: {0}\nDescrição: {1}\nMarca: {2}\nCategoria: {3}\nStock: {4}\nValor: {5}\nGarantia (Anos):{6}", nome, descrição, Marca.Nome, Categoria.Nome, stock, ValorDesconto, garantiaAnos);
         }
+
         /// <summary>
         /// Redefinição do Equals
         /// </summary>
@@ -184,7 +187,7 @@ namespace OProduto
             if (obj is Produto)
             {
                 Produto a = (Produto)obj;
-                if (a.Nome == nome && a.Marca == marca && garantiaAnos == a.GarantiaAnos) return true;
+                if (a.Nome == nome && a.Marca == marca && a.categoria == categoria && garantiaAnos == a.GarantiaAnos) return true;
             }
             return false;
         }

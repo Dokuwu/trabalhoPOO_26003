@@ -1,25 +1,23 @@
 ﻿/*
-*	<copyright file="AsMarcas" company="IPCA">
+*	<copyright file="OsClientes" company="IPCA">
 *	</copyright>
 * 	<author>Fabio</author>
-*   <date>2023 11/7/2023 10:31:11 PM</date>
+*   <date>2023 11/28/2023 11:36:49 PM</date>
 *	<description></description>
 **/
-using OProduto;
-using System;
+
+using AsPessoas;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text.RegularExpressions;
 
 namespace GereDados
 {
-    [Serializable]
-    public class AsMarcas
+    public class OsClientes
     {
         #region ATRIBUTOS
-        List<Marca> marcas;
+        static List<Cliente> clientes;
         #endregion
 
         #region COMPORTAMENTO
@@ -28,17 +26,19 @@ namespace GereDados
         /// <summary>
         /// Construtor por omissão
         /// </summary>
-        public AsMarcas()
-        {
-            marcas = new List<Marca>();
+        public OsClientes()
+        { 
+            clientes = new List<Cliente>();
         }
 
         #endregion
-        /// <summary>
-        /// Manipulação da lista 
-        /// </summary>
+
         #region PROPRIEDADES
-        public List<Marca> Marcas { get { return (List<Marca>)marcas.ToList(); } }
+        /// <summary>
+        /// Metodo de manipulação de clientes
+        /// </summary>
+        public List<Cliente> Clientes { get { return clientes.ToList(); } }
+
         #endregion
 
 
@@ -52,17 +52,20 @@ namespace GereDados
 
         #region OUTROS METODOS
 
+
+
         #region DADOS
+
         /// <summary>
         /// Metodo que lê um ficheiro e guarda numa lista a informação
         /// </summary>
         /// <returns></returns>
-        public bool PegaDados()
+        public bool PegaDadosClientes()
         {
-            if (!(File.Exists("Marcas.bin"))) return false;
-            Stream s = File.Open("Marcas.bin",FileMode.Open,FileAccess.Read);
+            if (!(File.Exists("Clientes.bin"))) return false;
+            Stream s = File.Open("Clientes.bin", FileMode.Open, FileAccess.Read);
             BinaryFormatter b = new BinaryFormatter();
-            marcas = (List<Marca>)b.Deserialize(s);
+            clientes = (List<Cliente>)b.Deserialize(s);
             s.Close();
             return true;
         }
@@ -70,64 +73,63 @@ namespace GereDados
         /// Metodo que guarda as informações de uma lista num ficheiro
         /// </summary>
         /// <returns></returns>
-        public bool GuardaDados()
+        public bool GuardaDadosClientes()
         {
-            if (!(File.Exists("Marcas.bin"))) return false;
-            Stream s = File.Open("Marcas.bin",FileMode.Open, FileAccess.Write);
+            if (!(File.Exists("Clientes.bin"))) return false;
+            Stream s = File.Open("Clientes.bin", FileMode.Open, FileAccess.Write);
             BinaryFormatter b = new BinaryFormatter();
-            b.Serialize(s, marcas);
+            b.Serialize(s, clientes);
             s.Close();
             return true;
         }
         #endregion
 
-
         #region LISTA
         /// <summary>
-        /// Metodo que verifica se ja existe uma marca numa lista
+        /// Metodo que verifica se ja existe um cliente numa lista
         /// </summary>
-        /// <param name="marca"></param>
+        /// <param name="cliente"></param>
         /// <returns>True or False</returns>
-        public bool ExisteMarca(Marca marca)
+        public bool ExisteCliente(Cliente cliente)
         {
-            foreach (Marca c in marcas)
-                if (marca.Equals(c)) return true;
+            foreach (Cliente c in clientes)
+                if (cliente.Equals(c)) return true;
             return false;
         }
         /// <summary>
-        /// Metodo que adiciona uma marca numa lista
+        /// Metodo que adiciona um cliente numa lista
         /// </summary>
-        /// <param name="marca"></param>
+        /// <param name="cliente"></param>
         /// <returns>True or False</returns>
-        public bool AdicionarMarca(Marca marca)
+        public bool AdicionarCliente(Cliente cliente)
         {
-            if (!(ExisteMarca(marca)))
+            if (!(ExisteCliente(cliente)))
             {
-                marcas.Add(marca);
+                clientes.Add(cliente);
                 return true;
             }
             return false;
 
         }
         /// <summary>
-        /// Metodo que remove uma marca
+        /// Metodo que remove um cliente
         /// </summary>
-        /// <param name="marca"></param>
+        /// <param name="cliente"></param>
         /// <returns>True or False</returns>
-        public bool RemoverMarca(Marca marca)
+        public bool RemoverCliente(Cliente cliente)
         {
-            if (marcas.Remove(marca)) return true;
+            if (clientes.Remove(cliente)) return true;
             return false;
         }
-        #endregion
 
+        #endregion
         #endregion
 
         #region DESCONSTRUTOR
         /// <summary>
         /// O desconstrutor.
         /// </summary>
-        ~AsMarcas()
+        ~OsClientes()
         {
 
         }

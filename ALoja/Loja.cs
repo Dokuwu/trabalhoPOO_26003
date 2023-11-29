@@ -9,7 +9,6 @@
 using AsPessoas;
 using GereDados;
 
-
 namespace ALoja
 {
     public class Loja
@@ -21,6 +20,8 @@ namespace ALoja
         AsMarcas marcas;
         AsCategorias categorias;
         AsCampanhas campanhas;
+        OsFuncionarios funcionarios;
+        OsClientes clientes;
         #endregion
 
         #region COMPORTAMENTO
@@ -37,6 +38,8 @@ namespace ALoja
             marcas = new AsMarcas();
             categorias = new AsCategorias();
             campanhas = new AsCampanhas();
+            clientes = new OsClientes();
+            funcionarios = new OsFuncionarios();
         }
         /// <summary>
         /// Construtor que recebe duas strings, um para o nome outro para o morada
@@ -51,6 +54,8 @@ namespace ALoja
             marcas = new AsMarcas();
             categorias = new AsCategorias();
             campanhas = new AsCampanhas();
+            clientes = new OsClientes();
+            funcionarios= new OsFuncionarios();
         }
 
         #endregion
@@ -61,7 +66,7 @@ namespace ALoja
         /// </summary>
         public string Nome
         {
-            get {  return nome; }
+            get { return nome; }
             set { nome = value; }
         }
         /// <summary>
@@ -69,8 +74,8 @@ namespace ALoja
         /// </summary>
         public Morada Morada
         {
-           get { return morada; }
-           set { morada = value; }
+            get { return morada; }
+            set { morada = value; }
         }
         /// <summary>
         /// Metodo de manipulação de produtos
@@ -78,7 +83,7 @@ namespace ALoja
         public OsProdutos Produtos
         {
             get { return produtos; }
-            set {  produtos = value; }
+            set { produtos = value; }
         }
         /// <summary>
         /// Metodo de manipulação de marcas
@@ -104,7 +109,22 @@ namespace ALoja
             get { return campanhas; }
             set { campanhas = value; }
         }
-
+        /// <summary>
+        /// Metodo de manipulação de clientes
+        /// </summary>
+        public OsClientes Clientes
+        {
+            get { return clientes; }
+            set { clientes = value; }
+        }
+        /// <summary>
+        /// Metodo de manipulação de funcionarios
+        /// </summary>
+        public OsFuncionarios Funcionarios
+        {
+            get { return funcionarios; }
+            set { funcionarios = value; }
+        }
         #endregion
 
         #region OPERADORES

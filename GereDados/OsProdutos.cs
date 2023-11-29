@@ -91,7 +91,9 @@ namespace GereDados
         public bool ExisteProduto(Produto produto)
         {
             foreach (Produto c in produtos)
-                if (produtos.Equals(produto)) return true;
+            {
+                if (produto.Equals(c)) return true;
+            }
             return false;
         }
         /// <summary>
@@ -117,7 +119,18 @@ namespace GereDados
         public bool RemoverProduto(Produto produto)
         {
             if (produtos.Remove(produto)) return true;
-            return false;
+            else return false;
+        }
+
+        public int PegarIndex(Produto produto)
+        {
+            int i = -1;
+            foreach(Produto c in produtos)
+            {
+                i++;
+                if (c == produto) return i;
+            }
+            return i;
         }
         #endregion
         #endregion

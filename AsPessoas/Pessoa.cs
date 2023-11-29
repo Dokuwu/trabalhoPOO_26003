@@ -15,6 +15,7 @@ namespace AsPessoas
     {
         #region ATRIBUTOS
         string nome;
+        string senha;
         int nif;
         int telefone;
         Morada morada;
@@ -41,6 +42,14 @@ namespace AsPessoas
         {
             get { return nome; }
             set { nome = value; }
+        }
+        /// <summary>
+        /// Metodo de manipulação da senha
+        /// </summary>
+        public string Senha
+        {
+            get { return senha; }
+            set { senha = value; }
         }
         /// <summary>
         /// Metodo de manipulação de NIF

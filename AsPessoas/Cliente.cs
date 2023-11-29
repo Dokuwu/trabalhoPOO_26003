@@ -31,6 +31,7 @@ namespace AsPessoas
         public Cliente()
         {
             Nome = string.Empty;
+            Senha = string.Empty;
             Nif = -1;
             Telefone = -1;
             saldo = -1;
@@ -41,13 +42,15 @@ namespace AsPessoas
         /// Construtor para construir cliente total
         /// </summary>
         /// <param name="cNome"></param>
+        /// <param name="cSenha"></param>
         /// <param name="cNif"></param>
         /// <param name="cTelefone"></param>
         /// <param name="cSaldo"></param>
         /// <param name="cMorada"></param>
-        public Cliente(string cNome, int cNif, int cTelefone, double cSaldo, Morada cMorada)
+        public Cliente(string cNome,string cSenha, int cNif, int cTelefone, double cSaldo, Morada cMorada)
         {
             Nome = cNome;
+            Senha = cSenha;
             Nif = cNif;
             Telefone = cTelefone;
             saldo = cSaldo;
