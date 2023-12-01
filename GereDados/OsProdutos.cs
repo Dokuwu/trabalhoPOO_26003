@@ -18,7 +18,7 @@ namespace GereDados
     public class OsProdutos
     {
         #region ATRIBUTOS
-        List<Produto> produtos;
+        static List<Produto> produtos;
         #endregion
 
         #region COMPORTAMENTO
@@ -27,7 +27,7 @@ namespace GereDados
         /// <summary>
         /// Construtor por omissão
         /// </summary>
-        public OsProdutos()
+        static OsProdutos()
         {
             produtos = new List<Produto>();
         }
@@ -38,7 +38,7 @@ namespace GereDados
         /// <summary>
         /// Manipulação da lista 
         /// </summary>
-        public List<Produto> Produtos { get { return produtos.ToList(); } }
+        public static List<Produto> Produtos { get { return produtos.ToList(); } }
         #endregion
 
 
@@ -57,7 +57,7 @@ namespace GereDados
         /// Metodo que lê um ficheiro e guarda numa lista a informação
         /// </summary>
         /// <returns></returns>
-        public bool PegaDados()
+        public static bool PegaDados()
         {
             if (!(File.Exists("Produtos.bin"))) return false;
             Stream s = File.Open("Produtos.bin", FileMode.Open, FileAccess.Read);
@@ -70,7 +70,7 @@ namespace GereDados
         /// Metodo que guarda as informações de uma lista num ficheiro
         /// </summary>
         /// <returns></returns>
-        public bool GuardaDados()
+        public static bool GuardaDados()
         {
             if (!(File.Exists("Produtos.bin"))) return false;
             Stream s = File.Open("Produtos.bin", FileMode.Open, FileAccess.Write);
@@ -88,7 +88,7 @@ namespace GereDados
         /// </summary>
         /// <param name="produto"></param>
         /// <returns>True or False</returns>
-        public bool ExisteProduto(Produto produto)
+        public static bool ExisteProduto(Produto produto)
         {
             foreach (Produto c in produtos)
             {
@@ -101,7 +101,7 @@ namespace GereDados
         /// </summary>
         /// <param name="produto"></param>
         /// <returns>True or False</returns>
-        public bool AdicionarProduto(Produto produto)
+        public static bool AdicionarProduto(Produto produto)
         {
             if (!(ExisteProduto(produto)))
             {
@@ -116,7 +116,7 @@ namespace GereDados
         /// </summary>
         /// <param name="produto"></param>
         /// <returns>True or False</returns>
-        public bool RemoverProduto(Produto produto)
+        public static bool RemoverProduto(Produto produto)
         {
             if (produtos.Remove(produto)) return true;
             else return false;
@@ -126,13 +126,13 @@ namespace GereDados
         /// </summary>
         /// <param name="nome"></param>
         /// <returns>-1 (lista vazia) ou index do produto</returns>
-        public int PegarIndex(string nome)
+        public static int PegarIndex(string nome)
         {///pegar nome em vez de objeto
             int i = -1;
-            foreach(Produto c in produtos)
+            foreach(Produto p in produtos)
             {
                 i++;
-                if (c.Nome == nome) return i;
+                if (p.Nome == nome) return i;
             }
             return -1;
         }

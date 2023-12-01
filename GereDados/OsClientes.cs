@@ -26,7 +26,7 @@ namespace GereDados
         /// <summary>
         /// Construtor por omissão
         /// </summary>
-        public OsClientes()
+        static OsClientes()
         { 
             clientes = new List<Cliente>();
         }
@@ -37,7 +37,7 @@ namespace GereDados
         /// <summary>
         /// Metodo de manipulação de clientes
         /// </summary>
-        public List<Cliente> Clientes { get { return clientes.ToList(); } }
+        public static List<Cliente> Clientes { get { return clientes.ToList(); } }
 
         #endregion
 
@@ -60,7 +60,7 @@ namespace GereDados
         /// Metodo que lê um ficheiro e guarda numa lista a informação
         /// </summary>
         /// <returns></returns>
-        public bool PegaDadosClientes()
+        public static bool PegaDados()
         {
             if (!(File.Exists("Clientes.bin"))) return false;
             Stream s = File.Open("Clientes.bin", FileMode.Open, FileAccess.Read);
@@ -73,7 +73,7 @@ namespace GereDados
         /// Metodo que guarda as informações de uma lista num ficheiro
         /// </summary>
         /// <returns></returns>
-        public bool GuardaDadosClientes()
+        public static bool GuardaDados()
         {
             if (!(File.Exists("Clientes.bin"))) return false;
             Stream s = File.Open("Clientes.bin", FileMode.Open, FileAccess.Write);
@@ -90,7 +90,7 @@ namespace GereDados
         /// </summary>
         /// <param name="cliente"></param>
         /// <returns>True or False</returns>
-        public bool ExisteCliente(Cliente cliente)
+        public static bool ExisteCliente(Cliente cliente)
         {
             foreach (Cliente c in clientes)
                 if (cliente.Equals(c)) return true;
@@ -101,7 +101,7 @@ namespace GereDados
         /// </summary>
         /// <param name="cliente"></param>
         /// <returns>True or False</returns>
-        public bool AdicionarCliente(Cliente cliente)
+        public static bool AdicionarCliente(Cliente cliente)
         {
             if (!(ExisteCliente(cliente)))
             {
@@ -116,10 +116,26 @@ namespace GereDados
         /// </summary>
         /// <param name="cliente"></param>
         /// <returns>True or False</returns>
-        public bool RemoverCliente(Cliente cliente)
+        public static bool RemoverCliente(Cliente cliente)
         {
             if (clientes.Remove(cliente)) return true;
             return false;
+        }
+
+        /// <summary>
+        /// Metodo que envia o index de um cliente com um nif especifico 
+        /// </summary>
+        /// <param name="nif"></param>
+        /// <returns>-1 (lista vazia) ou index do produto</returns>
+        public static int PegarIndex(int nif)
+        {///pegar nome em vez de objeto
+            int i = -1;
+            foreach (Cliente c in clientes)
+            {
+                i++;
+                if (c.Nif == nif) return i;
+            }
+            return -1;
         }
 
         #endregion

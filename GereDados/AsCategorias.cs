@@ -5,7 +5,7 @@
 *   <date>2023 11/7/2023 10:31:47 PM</date>
 *	<description></description>
 **/
-using ALoja;
+
 using OProduto;
 using System;
 using System.Collections.Generic;
@@ -19,7 +19,7 @@ namespace GereDados
     public class AsCategorias
     {
         #region ATRIBUTOS
-        List<Categoria> categorias;
+        static List<Categoria> categorias;
         #endregion
 
         #region COMPORTAMENTO
@@ -28,7 +28,7 @@ namespace GereDados
         /// <summary>
         /// Construtor por omissão
         /// </summary>
-        public AsCategorias()
+        static AsCategorias()
         {
             categorias = new List<Categoria>();
         }
@@ -39,7 +39,7 @@ namespace GereDados
         /// <summary>
         /// Manipulação da lista 
         /// </summary>
-        public List<Categoria> Categorias { get { return categorias.ToList(); } }
+        public static List<Categoria> Categorias { get { return categorias.ToList(); } }
         #endregion
 
 
@@ -58,7 +58,7 @@ namespace GereDados
         /// Metodo que lê um ficheiro e guarda numa lista a informação
         /// </summary>
         /// <returns></returns>
-        public bool PegaDados()
+        public static bool PegaDados()
         {
             if (!(File.Exists("Marcas.bin"))) return false;
             Stream s = File.Open("Categorias.bin", FileMode.Open, FileAccess.Read);
@@ -72,7 +72,7 @@ namespace GereDados
         /// Metodo que guarda as informações de uma lista num ficheiro
         /// </summary>
         /// <returns></returns>
-        public bool GuardaDados()
+        public static bool GuardaDados()
         {
             if (!(File.Exists("Marcas.bin"))) return false;
             Stream s = File.Open("Categorias.bin", FileMode.Open, FileAccess.Write);
@@ -91,7 +91,7 @@ namespace GereDados
         /// </summary>
         /// <param name="categoria"></param>
         /// <returns>True or False</returns>
-        public bool ExisteCategoria(Categoria categoria)
+        public static bool ExisteCategoria(Categoria categoria)
         {
             foreach (Categoria c in categorias)
                 if (categoria.Equals(c)) return true;
@@ -102,7 +102,7 @@ namespace GereDados
         /// </summary>
         /// <param name="categoria"></param>
         /// <returns>True or False</returns>
-        public bool AdicionarCategoria(Categoria categoria)
+        public static bool AdicionarCategoria(Categoria categoria)
         {
             if (!(ExisteCategoria(categoria)))
             {
@@ -117,11 +117,27 @@ namespace GereDados
         /// </summary>
         /// <param name="categoria"></param>
         /// <returns>True or False</returns>
-        public bool RemoverCategoria(Categoria categoria)
+        public static bool RemoverCategoria(Categoria categoria)
         {
             if (categorias.Remove(categoria)) return true;
             return false;
         }
+        /// <summary>
+        /// Metodo que envia o index de uma categoria com um nome especifico 
+        /// </summary>
+        /// <param name="nome"></param>
+        /// <returns>-1 (lista vazia) ou index do produto</returns>
+        public static int PegarIndex(string nome)
+        {///pegar nome em vez de objeto
+            int i = -1;
+            foreach (Categoria c in categorias)
+            {
+                i++;
+                if (c.Nome == nome) return i;
+            }
+            return -1;
+        }
+
         #endregion
         #endregion
 

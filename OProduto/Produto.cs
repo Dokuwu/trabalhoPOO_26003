@@ -7,11 +7,7 @@
 **/
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Xml;
-using ALoja;
+
 namespace OProduto
 {
     [Serializable]

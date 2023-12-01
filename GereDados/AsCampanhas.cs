@@ -5,7 +5,7 @@
 *   <date>2023 11/11/2023 9:11:30 PM</date>
 *	<description></description>
 **/
-using ALoja;
+
 using OProduto;
 using System;
 using System.Collections.Generic;
@@ -19,7 +19,7 @@ namespace GereDados
     public class AsCampanhas
     {
         #region ATRIBUTOS
-        List<Campanha> campanhas;
+        static List<Campanha> campanhas;
         #endregion
 
         #region COMPORTAMENTO
@@ -28,7 +28,7 @@ namespace GereDados
         /// <summary>
         /// Construtor por omissão
         /// </summary>
-        public AsCampanhas()
+        static AsCampanhas()
         {
             campanhas = new List<Campanha>();
         }
@@ -39,7 +39,7 @@ namespace GereDados
         /// <summary>
         /// Manipulação da lista 
         /// </summary>
-        public List<Campanha> Campanhas { get { return campanhas.ToList(); } }
+        public static List<Campanha> Campanhas { get { return campanhas.ToList(); } }
         #endregion
 
         #region OPERADORES
@@ -57,7 +57,7 @@ namespace GereDados
         /// Metodo que lê um ficheiro e guarda numa lista a informação
         /// </summary>
         /// <returns></returns>
-        public bool PegaDados()
+        public static bool PegaDados()
         {
             if (!(File.Exists("Campanhas.bin"))) return false;
             Stream s = File.Open("Campanhas.bin", FileMode.Open, FileAccess.Read);
@@ -70,7 +70,7 @@ namespace GereDados
         /// Metodo que guarda as informações de uma lista num ficheiro
         /// </summary>
         /// <returns></returns>
-        public bool GuardaDados()
+        public static bool GuardaDados()
         {
             if (!(File.Exists("Campanhas.bin"))) return false;
             Stream s = File.Open("Campanhas.bin", FileMode.Open, FileAccess.Write);
@@ -87,7 +87,7 @@ namespace GereDados
         /// </summary>
         /// <param name="campanha"></param>
         /// <returns>True or False</returns>
-        public bool ExisteCampanha(Campanha campanha)
+        public static bool ExisteCampanha(Campanha campanha)
         {
             foreach (Campanha c in campanhas)
                 if (campanha.Equals(c)) return true;
@@ -98,7 +98,7 @@ namespace GereDados
         /// </summary>
         /// <param name="campanha"></param>
         /// <returns>True or False</returns>
-        public bool AdicionarCampanha(Campanha campanha)
+        public static bool AdicionarCampanha(Campanha campanha)
         {
             if (!(ExisteCampanha(campanha)))
             {
@@ -113,7 +113,7 @@ namespace GereDados
         /// </summary>
         /// <param name="campanha"></param>
         /// <returns>True or False</returns>
-        public bool RemoverCampanha(Campanha campanha)
+        public static bool RemoverCampanha(Campanha campanha)
         {
             if (campanhas.Remove(campanha)) return true;
             return false;
@@ -121,7 +121,7 @@ namespace GereDados
         /// <summary>
         /// Metodo que atualiza os preços perante as datas das campanhas, eliminando as campanhas que ja expiraram
         /// </summary>
-        public void VerificarDataCampanhas(List<Produto> produtos)
+        public static void VerificarDataCampanhas(List<Produto> produtos)
         {
             foreach (Campanha c in campanhas)
             {
