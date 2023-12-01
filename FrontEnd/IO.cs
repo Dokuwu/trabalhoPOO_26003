@@ -32,6 +32,16 @@ namespace FrontEnd
             }
         }
 
+        public static void MostraProdutoStock(List<Produto> produtos)
+        {
+
+            for (int i = 0; i < produtos.Count; i++)
+            {
+                Console.WriteLine("-~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~--~~-");
+                Console.WriteLine("Nome: {0}\tStock: {1}", produtos[i].Nome, produtos[i].Stock);
+            }
+        }
+
         #endregion
 
         #region CATEGORIA
@@ -47,6 +57,8 @@ namespace FrontEnd
                 Console.WriteLine(categorias[i].ToString());
             }
         }
+        
+        
         #endregion
 
         #region CAMPANHA

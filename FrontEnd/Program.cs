@@ -18,7 +18,7 @@ namespace FrontEnd
             loja.Marcas.PegaDados();
             loja.Funcionarios.PegaDadosFuncionarios();
             loja.Clientes.PegaDadosClientes();
-
+            loja.Campanhas.VerificarDataCampanhas(loja.Produtos.Produtos);
             IO.MostraClientes(loja.Clientes.Clientes);
             Console.WriteLine("\n");
             IO.MostraFuncionarios(loja.Funcionarios.Funcionarios);

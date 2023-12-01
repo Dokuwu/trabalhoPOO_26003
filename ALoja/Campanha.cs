@@ -13,7 +13,7 @@ using System.Linq;
 namespace ALoja
 {
     [Serializable]
-    public class Campanha
+    public class Campanha : IComparable<Campanha>
     {
         #region ATRIBUTOS
         string nome;
@@ -151,7 +151,22 @@ namespace ALoja
         #endregion
 
         #region OUTROS METODOS
-
+        /// <summary>
+        /// Implementação do CompareTo, no qual percorre o nome do produto num loop for até acabar um dos nomes, se nao foi possivel verificar o if
+        /// verifica o tamanho dos nomes
+        /// </summary>
+        /// <param name="campanha"></param>
+        /// <returns>-1 ou 0 ou 1</returns>
+        public int CompareTo(Campanha campanha)
+        {
+            for (int i = 0, j = 0; i < this.nome.Length && j < campanha.nome.Length; i++, j++)
+            {
+                if (this.nome[i] > campanha.nome[j]) return 1;
+            }
+            if (this.nome.Length < campanha.nome.Length) return -1;
+            else if (this.nome.Length > campanha.nome.Length) return 1;
+            else return 0;
+        }
         #endregion
 
         #region DESCONSTRUTOR

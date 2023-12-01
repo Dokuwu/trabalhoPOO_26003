@@ -6,12 +6,13 @@
 *	<description></description>
 **/
 
+using OProduto;
 using System;
 
 namespace AsPessoas
 {
     [Serializable]
-    public class Funcionario : Pessoa
+    public class Funcionario : Pessoa, IComparable<Funcionario>
     {
         #region ATRIBUTOS
 
@@ -107,7 +108,22 @@ namespace AsPessoas
         #endregion
 
         #region OUTROS METODOS
-
+        /// <summary>
+        /// Implementação do CompareTo, no qual percorre o nome do produto num loop for até acabar um dos nomes, se nao foi possivel verificar o if
+        /// verifica o tamanho dos nomes
+        /// </summary>
+        /// <param name="funcionario"></param>
+        /// <returns>-1 ou 0 ou 1</returns>
+        public int CompareTo(Funcionario funcionario)
+        {
+            for (int i = 0, j = 0; i < this.Nome.Length && j < funcionario.Nome.Length; i++, j++)
+            {
+                if (this.Nome[i] > funcionario.Nome[j]) return 1;
+            }
+            if (this.Nome.Length < funcionario.Nome.Length) return -1;
+            else if (this.Nome.Length > funcionario.Nome.Length) return 1;
+            else return 0;
+        }
         #endregion
 
         #region DESCONSTRUTOR

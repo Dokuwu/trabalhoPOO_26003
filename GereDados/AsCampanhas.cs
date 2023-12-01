@@ -121,16 +121,27 @@ namespace GereDados
         /// <summary>
         /// Metodo que atualiza os preços perante as datas das campanhas, eliminando as campanhas que ja expiraram
         /// </summary>
-        public void VerificarDataCampanhas()
+        public void VerificarDataCampanhas(List<Produto> produtos)
         {
             foreach (Campanha c in campanhas)
             {
-                if (DateTime.Compare(DateTime.Now, c.DataFim) > 0) foreach (Produto p in c.Produtos)
+                if (DateTime.Compare(DateTime.Now, c.DataFim) < 0) RemoverCampanha(c);
+                else
                 {
-                    p.ValorDesconto = p.ValorOriginal;
-                    RemoverCampanha(c);
+                    foreach (Produto p in produtos)
+                    {
+                        if (c.Produtos.Contains(p))
+                            foreach (Produto pc in c.Produtos)
+                            {
+                                if (pc == p)
+                                {
+                                    p.ValorDesconto = p.ValorOriginal * (c.DescontoPercent / 100);
+                                    break;
+                                }
+                            }
+                    }
                 }
-                else foreach (Produto p in c.Produtos) p.ValorDesconto = p.ValorOriginal * (c.DescontoPercent / 100);
+
             }
         }
 

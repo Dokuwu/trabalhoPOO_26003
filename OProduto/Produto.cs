@@ -10,11 +10,12 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Xml;
 using ALoja;
 namespace OProduto
 {
     [Serializable]
-    public class Produto
+    public class Produto : IComparable<Produto>
     {
         #region ATRIBUTOS
         string nome;
@@ -195,7 +196,20 @@ namespace OProduto
         #endregion
 
         #region OUTROS METODOS
-       
+        /// <summary>
+        /// Implementação do CompareTo, no qual percorre o nome do produto num loop for até acabar um dos nomes, se nao foi possivel verificar o if
+        /// verifica o tamanho dos nomes
+        /// </summary>
+        /// <param name="produto"></param>
+        /// <returns>-1 ou 0 ou 1</returns>
+        public int CompareTo(Produto produto)
+        {
+            for (int i = 0, j = 0; i < this.nome.Length && j < produto.nome.Length; i++, j++) { 
+            if (this.nome[i] > produto.nome[j]) return 1; }
+            if (this.nome.Length < produto.nome.Length) return -1;
+            else if(this.nome.Length > produto.nome.Length) return 1;
+            else return 0;
+        }
         #endregion
 
         #region DESCONSTRUTOR

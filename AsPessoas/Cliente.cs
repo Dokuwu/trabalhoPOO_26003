@@ -14,7 +14,7 @@ using System.Linq;
 namespace AsPessoas
 {
     [Serializable]
-    public class Cliente : Pessoa
+    public class Cliente : Pessoa, IComparable<Cliente>
     {
         #region ATRIBUTOS
         double saldo;
@@ -47,7 +47,7 @@ namespace AsPessoas
         /// <param name="cTelefone"></param>
         /// <param name="cSaldo"></param>
         /// <param name="cMorada"></param>
-        public Cliente(string cNome,string cSenha, int cNif, int cTelefone, double cSaldo, Morada cMorada)
+        public Cliente(string cNome, string cSenha, int cNif, int cTelefone, double cSaldo, Morada cMorada)
         {
             Nome = cNome;
             Senha = cSenha;
@@ -134,6 +134,23 @@ namespace AsPessoas
 
         #region OUTROS METODOS
         /// <summary>
+        /// Implementação do CompareTo, no qual percorre o nome do produto num loop for até acabar um dos nomes, se nao foi possivel verificar o if
+        /// verifica o tamanho dos nomes
+        /// </summary>
+        /// <param name="cliente"></param>
+        /// <returns>-1 ou 0 ou 1</returns>
+        public int CompareTo(Cliente cliente)
+        {
+            for (int i = 0, j = 0; i < this.Nome.Length && j < cliente.Nome.Length; i++, j++)
+            {
+                if (this.Nome[i] > cliente.Nome[j]) return 1;
+            }
+            if (this.Nome.Length < cliente.Nome.Length) return -1;
+            else if (this.Nome.Length > cliente.Nome.Length) return 1;
+            else return 0;
+        }
+
+        /// <summary>
         /// Metodo que verifica se ja um produto no carrinho
         /// </summary>
         /// <param name="produto"></param>
@@ -144,18 +161,21 @@ namespace AsPessoas
                 if (produto.Equals(p)) return true;
             return false;
         }
+
         /// <summary>
         /// Metodo que adiciona um produto ao carrinho
         /// </summary>
         /// <param name="produto"></param>
         /// <returns>True or False</returns>
-        public bool AdicionarCarinho(Produto produto)
+        public bool AdicionarCarinho(Produto produto, int numproduto)
         {
-            if (!(ExisteCarrinho(produto)))
+
+            if (produto.Stock >= numproduto)
             {
                 carrinho.Add(produto);
                 return true;
             }
+
             return false;
 
         }
@@ -181,6 +201,15 @@ namespace AsPessoas
                 valor += p.ValorDesconto;
             }
             return valor;
+        }
+        /// <summary>
+        /// Metodo realizado na compra, no qual retira saldo do cliente, retira 1 de stock dos produtos 
+        /// </summary>
+        public void PagarCarrinho()
+        {
+            saldo -= ValorCarrinho();
+            foreach (Produto p in carrinho) p.Stock -= 1;
+            carrinho.Clear();
         }
 
         #endregion

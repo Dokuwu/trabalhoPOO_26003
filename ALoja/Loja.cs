@@ -5,7 +5,7 @@
 *   <date>2023 10/25/2023 2:22:54 PM</date>
 *	<description></description>
 **/
-
+/*tornar numa so loja*/
 using AsPessoas;
 using GereDados;
 
