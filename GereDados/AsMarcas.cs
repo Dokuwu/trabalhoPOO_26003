@@ -19,7 +19,7 @@ namespace GereDados
     public class AsMarcas
     {
         #region ATRIBUTOS
-        List<Marca> marcas;
+        static List<Marca> marcas;
         #endregion
 
         #region COMPORTAMENTO
@@ -28,7 +28,7 @@ namespace GereDados
         /// <summary>
         /// Construtor por omissão
         /// </summary>
-        public AsMarcas()
+        static AsMarcas()
         {
             marcas = new List<Marca>();
         }
@@ -38,7 +38,7 @@ namespace GereDados
         /// Manipulação da lista 
         /// </summary>
         #region PROPRIEDADES
-        public List<Marca> Marcas { get { return (List<Marca>)marcas.ToList(); } }
+        public static List<Marca> Marcas { get { return (List<Marca>)marcas.ToList(); } }
         #endregion
 
 
@@ -57,7 +57,7 @@ namespace GereDados
         /// Metodo que lê um ficheiro e guarda numa lista a informação
         /// </summary>
         /// <returns></returns>
-        public bool PegaDados()
+        public static bool PegaDados()
         {
             if (!(File.Exists("Marcas.bin"))) return false;
             Stream s = File.Open("Marcas.bin",FileMode.Open,FileAccess.Read);
@@ -70,7 +70,7 @@ namespace GereDados
         /// Metodo que guarda as informações de uma lista num ficheiro
         /// </summary>
         /// <returns></returns>
-        public bool GuardaDados()
+        public static bool GuardaDados()
         {
             if (!(File.Exists("Marcas.bin"))) return false;
             Stream s = File.Open("Marcas.bin",FileMode.Open, FileAccess.Write);
@@ -88,7 +88,7 @@ namespace GereDados
         /// </summary>
         /// <param name="marca"></param>
         /// <returns>True or False</returns>
-        public bool ExisteMarca(Marca marca)
+        public static bool ExisteMarca(Marca marca)
         {
             foreach (Marca c in marcas)
                 if (marca.Equals(c)) return true;
@@ -99,7 +99,7 @@ namespace GereDados
         /// </summary>
         /// <param name="marca"></param>
         /// <returns>True or False</returns>
-        public bool AdicionarMarca(Marca marca)
+        public static bool AdicionarMarca(Marca marca)
         {
             if (!(ExisteMarca(marca)))
             {
@@ -114,11 +114,28 @@ namespace GereDados
         /// </summary>
         /// <param name="marca"></param>
         /// <returns>True or False</returns>
-        public bool RemoverMarca(Marca marca)
+        public static bool RemoverMarca(Marca marca)
         {
             if (marcas.Remove(marca)) return true;
             return false;
         }
+
+        /// <summary>
+        /// Metodo que envia o index de uma marca com um nome especifico 
+        /// </summary>
+        /// <param name="nome"></param>
+        /// <returns>-1 (lista vazia) ou index do produto</returns>
+        public static int PegarIndex(string nome)
+        {///pegar nome em vez de objeto
+            int i = -1;
+            foreach (Marca m in marcas)
+            {
+                i++;
+                if (m.Nome == nome) return i;
+            }
+            return -1;
+        }
+
         #endregion
 
         #endregion

@@ -1,6 +1,4 @@
-﻿using ALoja;
-using AsPessoas;
-using GereDados;
+﻿using GereDados;
 using OProduto;
 using System;
 
@@ -11,30 +9,25 @@ namespace FrontEnd
 
         static void Main(string[] args)
         {
-            Loja loja = new Loja("Olá",new Morada("Barcelos", "Rua das Papoulas",4755212));
-            loja.Produtos.PegaDados();
-            loja.Campanhas.PegaDados();
-            loja.Categorias.PegaDados();
-            loja.Marcas.PegaDados();
-            loja.Funcionarios.PegaDadosFuncionarios();
-            loja.Clientes.PegaDadosClientes();
-            loja.Campanhas.VerificarDataCampanhas(loja.Produtos.Produtos);
-            IO.MostraClientes(loja.Clientes.Clientes);
-            Console.WriteLine("\n");
-            IO.MostraFuncionarios(loja.Funcionarios.Funcionarios);
+            OsProdutos.PegaDados();
+            AsCategorias.PegaDados();
+            OsProdutos.PegaDados();
+            AsMarcas.PegaDados();
+            AsCampanhas.PegaDados();
+            OsFuncionarios.PegaDados();
+            OsClientes.PegaDados();
+
+            foreach (Produto p in OsProdutos.Produtos) p.ValorDesconto = p.ValorOriginal;
+            AsCampanhas.VerificarDataCampanhas(OsProdutos.Produtos);
 
 
-
-
-
-
-
-            loja.Produtos.GuardaDados();
-            loja.Campanhas.GuardaDados();
-            loja.Categorias.GuardaDados();
-            loja.Marcas.GuardaDados();
-            loja.Funcionarios.GuardaDadosFuncionarios();
-            loja.Clientes.GuardaDadosClientes();
+            OsProdutos.GuardaDados();
+            AsCategorias.GuardaDados();
+            OsProdutos.GuardaDados();
+            AsMarcas.GuardaDados();
+            AsCampanhas.GuardaDados();
+            OsFuncionarios.GuardaDados();
+            OsClientes.GuardaDados();
         }
     }
 }

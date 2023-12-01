@@ -5,12 +5,12 @@
 *   <date>2023 10/30/2023 12:33:59 PM</date>
 *	<description></description>
 **/
-using OProduto;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ALoja
+namespace OProduto
 {
     [Serializable]
     public class Campanha : IComparable<Campanha>

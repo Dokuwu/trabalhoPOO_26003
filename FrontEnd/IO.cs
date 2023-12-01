@@ -8,10 +8,8 @@
 
 using System;
 using OProduto;
-using GereDados;
 using AsPessoas;
 using System.Collections.Generic;
-using ALoja;
 
 namespace FrontEnd
 {

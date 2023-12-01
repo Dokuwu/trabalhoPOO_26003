@@ -39,7 +39,7 @@ namespace GereDados
         /// <summary>
         /// Metodo de manipulação de funcionarios
         /// </summary>
-        public List<Funcionario> Funcionarios { get { return funcionarios.ToList(); } }
+        public static List<Funcionario> Funcionarios { get { return funcionarios.ToList(); } }
         #endregion
 
         #region OPERADORES
@@ -59,7 +59,7 @@ namespace GereDados
         /// Metodo que lê um ficheiro e guarda numa lista a informação
         /// </summary>
         /// <returns></returns>
-        public bool PegaDadosFuncionarios()
+        public static bool PegaDados()
         {
             if (!(File.Exists("Funcionarios.bin"))) return false;
             Stream s = File.Open("Funcionarios.bin", FileMode.Open, FileAccess.Read);
@@ -72,7 +72,7 @@ namespace GereDados
         /// Metodo que guarda as informações de uma lista num ficheiro
         /// </summary>
         /// <returns></returns>
-        public bool GuardaDadosFuncionarios()
+        public static bool GuardaDados()
         {
             if (!(File.Exists("Funcionarios.bin"))) return false;
             Stream s = File.Open("Funcionarios.bin", FileMode.Open, FileAccess.Write);
@@ -89,7 +89,7 @@ namespace GereDados
         /// </summary>
         /// <param name="funcionario"></param>
         /// <returns>True or False</returns>
-        public bool ExisteFuncionario(Funcionario funcionario)
+        public static bool ExisteFuncionario(Funcionario funcionario)
         {
             foreach (Funcionario c in funcionarios)
                 if (funcionario.Equals(c)) return true;
@@ -100,7 +100,7 @@ namespace GereDados
         /// </summary>
         /// <param name="funcionario"></param>
         /// <returns>True or False</returns>
-        public bool AdicionarFuncionario(Funcionario funcionario)
+        public static bool AdicionarFuncionario(Funcionario funcionario)
         {
             if (!(ExisteFuncionario(funcionario)))
             {
@@ -115,11 +115,28 @@ namespace GereDados
         /// </summary>
         /// <param name="funcionario"></param>
         /// <returns>True or False</returns>
-        public bool RemoverFuncionario(Funcionario funcionario)
+        public static bool RemoverFuncionario(Funcionario funcionario)
         {
             if (funcionarios.Remove(funcionario)) return true;
             return false;
         }
+
+        /// <summary>
+        /// Metodo que envia o index de um funcionario com um nif especifico 
+        /// </summary>
+        /// <param name="nif"></param>
+        /// <returns>-1 (lista vazia) ou index do produto</returns>
+        public static int PegarIndex(int nif)
+        {///pegar nome em vez de objeto
+            int i = -1;
+            foreach (Funcionario f in funcionarios)
+            {
+                i++;
+                if (f.Nif == nif) return i;
+            }
+            return -1;
+        }
+
         #endregion
 
         #endregion

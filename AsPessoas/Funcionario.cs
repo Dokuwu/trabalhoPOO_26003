@@ -6,7 +6,6 @@
 *	<description></description>
 **/
 
-using OProduto;
 using System;
 
 namespace AsPessoas
@@ -88,7 +87,7 @@ namespace AsPessoas
         /// <returns></returns>
         public override string ToString()
         {
-            return string.Format("Nome: {0}\nNIF: {1}\nTelefone: {2}\nMorada: {3}$", Nome, Nif, Telefone, Morada.ToString());
+            return string.Format("Nome: {0}\nNIF: {1}\nTelefone: {2}\nMorada: {3}", Nome, Nif, Telefone, Morada.ToString());
         }
         /// <summary>
         /// Redefinição do metodo Equals
