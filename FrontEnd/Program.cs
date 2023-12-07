@@ -1,5 +1,6 @@
 ﻿using GereDados;
 using OProduto;
+using RegrasNegocio;
 using System;
 
 namespace FrontEnd
@@ -9,25 +10,31 @@ namespace FrontEnd
 
         static void Main(string[] args)
         {
-            OsProdutos.PegaDados();
-            AsCategorias.PegaDados();
-            OsProdutos.PegaDados();
-            AsMarcas.PegaDados();
-            AsCampanhas.PegaDados();
-            OsFuncionarios.PegaDados();
-            OsClientes.PegaDados();
-
-            foreach (Produto p in OsProdutos.Produtos) p.ValorDesconto = p.ValorOriginal;
-            AsCampanhas.VerificarDataCampanhas(OsProdutos.Produtos);
+            Regras.PegaDadosProduto();
+            Regras.PegaDadosCategoria();
+            Regras.PegaDadosMarca();
+            Regras.PegaDadosCampanha();
+            Regras.PegaDadosFuncionario();
+            Regras.PegaDadosCliente();
 
 
-            OsProdutos.GuardaDados();
-            AsCategorias.GuardaDados();
-            OsProdutos.GuardaDados();
-            AsMarcas.GuardaDados();
-            AsCampanhas.GuardaDados();
-            OsFuncionarios.GuardaDados();
-            OsClientes.GuardaDados();
+            foreach (Produto p in Regras.ListaProduto()) p.ValorDesconto = p.ValorOriginal;
+            Regras.VerificarDataCampanhas(Regras.ListaProduto());
+
+            IO.MostraProdutos(Regras.ListaProduto());
+            IO.MostraMarcas(Regras.ListaMarca());
+            IO.MostraCategorias(Regras.ListaCategoria());
+            IO.MostraCampanhas(Regras.ListaCampanha());
+            IO.MostraFuncionarios(Regras.ListaFuncionario());
+            IO.MostraClientes(Regras.ListaCliente());
+
+            Regras.GuardaDadosProduto();
+            Regras.GuardaDadosCategoria();
+            Regras.GuardaDadosMarca();
+            Regras.GuardaDadosCampanha();
+            Regras.GuardaDadosFuncionario();
+            Regras.GuardaDadosCliente();
+            
         }
     }
 }

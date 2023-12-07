@@ -116,7 +116,7 @@ namespace OProduto
         {
             for (int i = 0, j = 0; i < this.nome.Length && j < categoria.nome.Length; i++, j++)
             {
-                if (this.nome[i] > categoria.nome[j]) return 1;
+                if (this.nome.ToUpper()[i] > categoria.nome.ToUpper()[j]) return 1;
             }
             if (this.nome.Length < categoria.nome.Length) return -1;
             else if (this.nome.Length > categoria.nome.Length) return 1;

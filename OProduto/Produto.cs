@@ -201,7 +201,7 @@ namespace OProduto
         public int CompareTo(Produto produto)
         {
             for (int i = 0, j = 0; i < this.nome.Length && j < produto.nome.Length; i++, j++) { 
-            if (this.nome[i] > produto.nome[j]) return 1; }
+            if (this.nome.ToUpper()[i] > produto.nome.ToUpper()[j]) return 1; }
             if (this.nome.Length < produto.nome.Length) return -1;
             else if(this.nome.Length > produto.nome.Length) return 1;
             else return 0;

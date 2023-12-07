@@ -120,7 +120,7 @@ namespace OProduto
         {
             for (int i = 0, j = 0; i < this.nome.Length && j < marca.nome.Length; i++, j++)
             {
-                if (this.nome[i] > marca.nome[j]) return 1;
+                if (this.nome.ToUpper()[i] > marca.nome.ToUpper()[j]) return 1;
             }
             if (this.nome.Length < marca.nome.Length) return -1;
             else if (this.nome.Length > marca.nome.Length) return 1;

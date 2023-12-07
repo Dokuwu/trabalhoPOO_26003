@@ -143,7 +143,7 @@ namespace AsPessoas
         {
             for (int i = 0, j = 0; i < this.Nome.Length && j < cliente.Nome.Length; i++, j++)
             {
-                if (this.Nome[i] > cliente.Nome[j]) return 1;
+                if (this.Nome.ToUpper()[i] > cliente.Nome.ToUpper()[j]) return 1;
             }
             if (this.Nome.Length < cliente.Nome.Length) return -1;
             else if (this.Nome.Length > cliente.Nome.Length) return 1;
@@ -167,12 +167,12 @@ namespace AsPessoas
         /// </summary>
         /// <param name="produto"></param>
         /// <returns>True or False</returns>
-        public bool AdicionarCarinho(Produto produto, int numproduto)
+        public bool AdicionarCarinho(Produto produto, int numProduto)
         {
 
-            if (produto.Stock >= numproduto)
+            if (produto.Stock >= numProduto)
             {
-                carrinho.Add(produto);
+                for (int i = 0; i < numProduto; i++) carrinho.Add(produto);
                 return true;
             }
 
@@ -184,10 +184,14 @@ namespace AsPessoas
         /// </summary>
         /// <param name="produto"></param>
         /// <returns>True or False</returns>
-        public bool RemoverCarrinho(Produto produto)
+        public bool RemoverCarrinho(Produto produto, int numProduto)
         {
-            if (carrinho.Remove(produto)) return true;
-            return false;
+            if(numProduto <= 0) return false;
+            for (int i = 0; i < numProduto; i++)
+            {
+                if (!(carrinho.Remove(produto))) return false;
+            }
+            return true;
         }
         /// <summary>
         /// Metodo que calcula o valor de um carriho
@@ -205,11 +209,16 @@ namespace AsPessoas
         /// <summary>
         /// Metodo realizado na compra, no qual retira saldo do cliente, retira 1 de stock dos produtos 
         /// </summary>
-        public void PagarCarrinho()
+        public bool PagarCarrinho()
         {
-            saldo -= ValorCarrinho();
-            foreach (Produto p in carrinho) p.Stock -= 1;
-            carrinho.Clear();
+            if (saldo > ValorCarrinho())
+            {
+                saldo -= ValorCarrinho();
+                foreach (Produto p in carrinho) p.Stock -= 1;
+                carrinho.Clear();
+                return true;
+            }
+            return false;
         }
 
         #endregion

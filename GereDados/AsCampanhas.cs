@@ -118,6 +118,8 @@ namespace GereDados
             if (campanhas.Remove(campanha)) return true;
             return false;
         }
+
+
         /// <summary>
         /// Metodo que atualiza os preços perante as datas das campanhas, eliminando as campanhas que ja expiraram
         /// </summary>
@@ -125,26 +127,36 @@ namespace GereDados
         {
             foreach (Campanha c in campanhas)
             {
-                if (DateTime.Compare(DateTime.Now, c.DataFim) < 0) RemoverCampanha(c);
+                if (DateTime.Compare(DateTime.Now, c.DataFim) > 0) RemoverCampanha(c);
                 else
                 {
                     foreach (Produto p in produtos)
                     {
-                        if (c.Produtos.Contains(p))
-                            foreach (Produto pc in c.Produtos)
-                            {
-                                if (pc == p)
-                                {
-                                    p.ValorDesconto = p.ValorOriginal * (c.DescontoPercent / 100);
-                                    break;
-                                }
-                            }
+                        if (c.Produtos.Contains(p)) { 
+                            if(p.ValorOriginal == p.ValorDesconto)p.ValorDesconto = p.ValorOriginal - p.ValorOriginal * (c.DescontoPercent / 100);
+                            else p.ValorDesconto = p.ValorDesconto - p.ValorDesconto * (c.DescontoPercent / 100);
+                        }
                     }
                 }
 
             }
         }
 
+
+
+        /// <summary>
+        /// Metodo que envia a campanha de uma lista de Campanha com um nome especifico 
+        /// </summary>
+        /// <param name="nome"></param>
+        /// <returns>Campanha ou null</returns>
+        public static Campanha PegarCampanha(string nome)
+        {
+            foreach (Campanha c in campanhas)
+            {
+                if (c.Nome == nome) return c;
+            }
+            return null;
+        }
         #endregion
 
         #endregion

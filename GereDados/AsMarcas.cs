@@ -34,13 +34,13 @@ namespace GereDados
         }
 
         #endregion
+
+        #region PROPRIEDADES
         /// <summary>
         /// Manipulação da lista 
         /// </summary>
-        #region PROPRIEDADES
         public static List<Marca> Marcas { get { return (List<Marca>)marcas.ToList(); } }
         #endregion
-
 
         #region OPERADORES
 
@@ -121,19 +121,17 @@ namespace GereDados
         }
 
         /// <summary>
-        /// Metodo que envia o index de uma marca com um nome especifico 
+        /// Metodo que envia a marca de uma lista de Marca com um nome especifico 
         /// </summary>
         /// <param name="nome"></param>
-        /// <returns>-1 (lista vazia) ou index do produto</returns>
-        public static int PegarIndex(string nome)
-        {///pegar nome em vez de objeto
-            int i = -1;
+        /// <returns>Marca ou null</returns>
+        public static Marca PegarMarca(string nome)
+        {
             foreach (Marca m in marcas)
             {
-                i++;
-                if (m.Nome == nome) return i;
+                if (m.Nome == nome) return m;
             }
-            return -1;
+            return null;
         }
 
         #endregion

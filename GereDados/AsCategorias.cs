@@ -123,19 +123,17 @@ namespace GereDados
             return false;
         }
         /// <summary>
-        /// Metodo que envia o index de uma categoria com um nome especifico 
+        /// Metodo que envia a categoria de uma lista de Categoria com um nome especifico 
         /// </summary>
         /// <param name="nome"></param>
-        /// <returns>-1 (lista vazia) ou index do produto</returns>
-        public static int PegarIndex(string nome)
-        {///pegar nome em vez de objeto
-            int i = -1;
+        /// <returns>Categoria ou null</returns>
+        public static Categoria PegarCategoria(string nome)
+        {
             foreach (Categoria c in categorias)
             {
-                i++;
-                if (c.Nome == nome) return i;
+                if (c.Nome == nome) return c;
             }
-            return -1;
+            return null;
         }
 
         #endregion

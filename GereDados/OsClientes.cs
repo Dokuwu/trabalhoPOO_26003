@@ -7,6 +7,7 @@
 **/
 
 using AsPessoas;
+using OProduto;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -41,7 +42,6 @@ namespace GereDados
 
         #endregion
 
-
         #region OPERADORES
 
         #endregion
@@ -51,8 +51,6 @@ namespace GereDados
         #endregion
 
         #region OUTROS METODOS
-
-
 
         #region DADOS
 
@@ -96,6 +94,7 @@ namespace GereDados
                 if (cliente.Equals(c)) return true;
             return false;
         }
+
         /// <summary>
         /// Metodo que adiciona um cliente numa lista
         /// </summary>
@@ -123,20 +122,19 @@ namespace GereDados
         }
 
         /// <summary>
-        /// Metodo que envia o index de um cliente com um nif especifico 
+        /// Metodo que envia o cliente de uma lista de Cliente com um nome especifico 
         /// </summary>
-        /// <param name="nif"></param>
-        /// <returns>-1 (lista vazia) ou index do produto</returns>
-        public static int PegarIndex(int nif)
-        {///pegar nome em vez de objeto
-            int i = -1;
+        /// <param name="nome"></param>
+        /// <returns>Cliente ou null</returns>
+        public static Cliente PegarCliente(string nome)
+        {
             foreach (Cliente c in clientes)
             {
-                i++;
-                if (c.Nif == nif) return i;
+                if (c.Nome == nome) return c;
             }
-            return -1;
+            return null;
         }
+
 
         #endregion
         #endregion

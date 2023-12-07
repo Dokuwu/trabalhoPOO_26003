@@ -117,7 +117,7 @@ namespace AsPessoas
         {
             for (int i = 0, j = 0; i < this.Nome.Length && j < funcionario.Nome.Length; i++, j++)
             {
-                if (this.Nome[i] > funcionario.Nome[j]) return 1;
+                if (this.Nome.ToUpper()[i] > funcionario.Nome.ToUpper()[j]) return 1;
             }
             if (this.Nome.Length < funcionario.Nome.Length) return -1;
             else if (this.Nome.Length > funcionario.Nome.Length) return 1;

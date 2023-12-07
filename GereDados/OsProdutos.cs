@@ -121,20 +121,19 @@ namespace GereDados
             if (produtos.Remove(produto)) return true;
             else return false;
         }
+
         /// <summary>
-        /// Metodo que envia o index de um produto com um nome especifico 
+        /// Metodo que envia o produto de uma lista de produto com um nome especifico 
         /// </summary>
         /// <param name="nome"></param>
-        /// <returns>-1 (lista vazia) ou index do produto</returns>
-        public static int PegarIndex(string nome)
-        {///pegar nome em vez de objeto
-            int i = -1;
+        /// <returnsProduto ou null</returns>
+        public static Produto PegarProduto(string nome)
+        {
             foreach(Produto p in produtos)
             {
-                i++;
-                if (p.Nome == nome) return i;
+                if (p.Nome == nome) return p;
             }
-            return -1;
+            return null;
         }
 
 

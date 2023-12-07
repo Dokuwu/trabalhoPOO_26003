@@ -44,14 +44,14 @@ namespace OProduto
         /// <param name="cDataInicio"></param>
         /// <param name="cDataFim"></param>
         /// <param name="cDescontoPercent"></param>
-        public Campanha(string cNome, DateTime cDataInicio, DateTime cDataFim, int cDescontoPercent)
+        public Campanha(string cNome, DateTime cDataInicio, DateTime cDataFim, int cDescontoPercent, List<Produto> lProdutos)
         {
             nome = cNome;
             dataInicio = cDataInicio;
             dataFim = cDataFim;
             descontoPercent = cDescontoPercent;
-            produtos = new List<Produto>();
-            ///função alterar preço desconto
+            produtos = lProdutos;
+            foreach (Produto p in produtos) p.ValorDesconto = p.ValorOriginal + p.ValorOriginal * (descontoPercent / 100);
         }
 
 
@@ -161,7 +161,7 @@ namespace OProduto
         {
             for (int i = 0, j = 0; i < this.nome.Length && j < campanha.nome.Length; i++, j++)
             {
-                if (this.nome[i] > campanha.nome[j]) return 1;
+                if (this.nome.ToUpper()[i] > campanha.nome.ToUpper()[j]) return 1;
             }
             if (this.nome.Length < campanha.nome.Length) return -1;
             else if (this.nome.Length > campanha.nome.Length) return 1;

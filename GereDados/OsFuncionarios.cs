@@ -6,6 +6,7 @@
 *	<description></description>
 **/
 using AsPessoas;
+using OProduto;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -51,8 +52,6 @@ namespace GereDados
         #endregion
 
         #region OUTROS METODOS
-
-
 
         #region DADOS
         /// <summary>
@@ -122,25 +121,22 @@ namespace GereDados
         }
 
         /// <summary>
-        /// Metodo que envia o index de um funcionario com um nif especifico 
+        /// Metodo que envia õ funcionario de uma lista de Funcionario com um nome especifico 
         /// </summary>
-        /// <param name="nif"></param>
-        /// <returns>-1 (lista vazia) ou index do produto</returns>
-        public static int PegarIndex(int nif)
-        {///pegar nome em vez de objeto
-            int i = -1;
+        /// <param name="nome"></param>
+        /// <returns>Funcionario ou null</returns>
+        public static Funcionario PegarFuncionario(string nome)
+        {
             foreach (Funcionario f in funcionarios)
             {
-                i++;
-                if (f.Nif == nif) return i;
+                if (f.Nome == nome) return f;
             }
-            return -1;
+            return null;
         }
 
         #endregion
 
         #endregion
-
 
         #region DESCONSTRUTOR
         /// <summary>
