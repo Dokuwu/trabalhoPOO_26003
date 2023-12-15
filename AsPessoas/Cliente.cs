@@ -12,7 +12,15 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace AsPessoas
-{
+{    
+    /* <summary>
+    * Purpose: Classe que define um Cliente
+    * Created by: Fabio
+    * Created on: 10/25/2023 2:40:50 PM
+    * </summary>
+    * <remarks></remarks>
+    * <example></example>
+    **/
     [Serializable]
     public class Cliente : Pessoa, IComparable<Cliente>
     {
@@ -169,8 +177,17 @@ namespace AsPessoas
         /// <returns>True or False</returns>
         public bool AdicionarCarinho(Produto produto, int numProduto)
         {
+            if (carrinho.Contains(produto))
+            {
+                foreach (Produto p in carrinho) if (p == produto) numProduto++;
 
-            if (produto.Stock >= numProduto)
+                if (produto.Stock >= numProduto)
+                {
+                    for (int i = 0; i < numProduto; i++) carrinho.Add(produto);
+                    return true;
+                }
+            }
+            else if (produto.Stock >= numProduto)
             {
                 for (int i = 0; i < numProduto; i++) carrinho.Add(produto);
                 return true;
@@ -186,10 +203,10 @@ namespace AsPessoas
         /// <returns>True or False</returns>
         public bool RemoverCarrinho(Produto produto, int numProduto)
         {
-            if(numProduto <= 0) return false;
+            if (numProduto <= 0) return false;
             for (int i = 0; i < numProduto; i++)
             {
-                if (!(carrinho.Remove(produto))) return false;
+                if(carrinho.Contains(produto)) if (!(carrinho.Remove(produto))) return false;
             }
             return true;
         }

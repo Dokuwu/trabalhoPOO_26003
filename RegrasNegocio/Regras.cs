@@ -10,10 +10,17 @@ using GereDados;
 using OProduto;
 using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace RegrasNegocio
 {
+    /* <summary>
+    * Purpose: Classe que define as regras de negocio
+    * Created by: Fabio
+    * Created on: 12/4/2023 12:45:32 PM
+    * </summary>
+    * <remarks></remarks>
+    * <example></example>
+    **/
     public class Regras
     {
         #region ATRIBUTOS
@@ -187,7 +194,7 @@ namespace RegrasNegocio
         {
             try
             {
-                if(AsCampanhas.GuardaDados()) return true;
+                if (AsCampanhas.GuardaDados()) return true;
                 return false;
             }
             catch (Exception ex)
@@ -277,7 +284,7 @@ namespace RegrasNegocio
             {
                 AsCampanhas.VerificarDataCampanhas(produtos);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 throw e;
             }
@@ -313,7 +320,7 @@ namespace RegrasNegocio
         {
             try
             {
-                if(AsCategorias.GuardaDados()) return true;
+                if (AsCategorias.GuardaDados()) return true;
                 return false;
             }
             catch (Exception ex)
@@ -425,7 +432,7 @@ namespace RegrasNegocio
         {
             try
             {
-                if(AsMarcas.GuardaDados()) return true;
+                if (AsMarcas.GuardaDados()) return true;
                 return false;
             }
             catch (Exception ex)
@@ -523,7 +530,7 @@ namespace RegrasNegocio
         {
             try
             {
-                if(OsClientes.PegaDados()) return true;
+                if (OsClientes.PegaDados()) return true;
                 return false;
             }
             catch (Exception ex)
@@ -539,7 +546,7 @@ namespace RegrasNegocio
         {
             try
             {
-                if(OsClientes.GuardaDados()) return true;
+                if (OsClientes.GuardaDados()) return true;
                 return false;
             }
             catch (Exception ex)
@@ -652,7 +659,7 @@ namespace RegrasNegocio
         {
             try
             {
-                if(OsFuncionarios.GuardaDados()) return true;
+                if (OsFuncionarios.GuardaDados()) return true;
                 return false;
             }
             catch (Exception ex)

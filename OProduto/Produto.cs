@@ -10,6 +10,14 @@ using System;
 
 namespace OProduto
 {
+    /* <summary>
+    * Purpose: Classe que define um Produto
+    * Created by: Fabio
+    * Created on: 10/25/2023 2:23:59 PM
+    * </summary>
+    * <remarks></remarks>
+    * <example></example>
+    **/
     [Serializable]
     public class Produto : IComparable<Produto>
     {

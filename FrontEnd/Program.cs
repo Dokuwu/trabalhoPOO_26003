@@ -21,6 +21,7 @@ namespace FrontEnd
             foreach (Produto p in Regras.ListaProduto()) p.ValorDesconto = p.ValorOriginal;
             Regras.VerificarDataCampanhas(Regras.ListaProduto());
 
+
             IO.MostraProdutos(Regras.ListaProduto());
             IO.MostraMarcas(Regras.ListaMarca());
             IO.MostraCategorias(Regras.ListaCategoria());
@@ -28,13 +29,13 @@ namespace FrontEnd
             IO.MostraFuncionarios(Regras.ListaFuncionario());
             IO.MostraClientes(Regras.ListaCliente());
 
+
             Regras.GuardaDadosProduto();
             Regras.GuardaDadosCategoria();
             Regras.GuardaDadosMarca();
             Regras.GuardaDadosCampanha();
             Regras.GuardaDadosFuncionario();
             Regras.GuardaDadosCliente();
-            
         }
     }
 }

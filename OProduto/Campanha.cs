@@ -12,6 +12,14 @@ using System.Linq;
 
 namespace OProduto
 {
+    /* <summary>
+    * Purpose: Classe que define uma Campanha
+    * Created by: Fabio
+    * Created on: 10/30/2023 12:33:59 PM
+    * </summary>
+    * <remarks></remarks>
+    * <example></example>
+    **/
     [Serializable]
     public class Campanha : IComparable<Campanha>
     {
@@ -96,7 +104,7 @@ namespace OProduto
         /// <summary>
         /// Metodo de manipulação de produtos
         /// </summary>
-        public List<Produto> Produtos { get { return produtos.ToList(); } }
+        public List<Produto> Produtos { get { return produtos; } }
         #endregion
 
         #region OPERADORES
@@ -151,6 +159,24 @@ namespace OProduto
         #endregion
 
         #region OUTROS METODOS
+
+
+        /// <summary>
+        /// Metodo que atualiza os preços dos produtos de uma campanha
+        /// </summary>
+        /// <param name="produtos"></param>
+        public void AtualizarPrecos(List<Produto> produtos)
+        {
+            foreach (Produto p in produtos)
+            {
+                if (Produtos.Contains(p))
+                {
+                    if (p.ValorOriginal == p.ValorDesconto) p.ValorDesconto = p.ValorOriginal - p.ValorOriginal * (DescontoPercent / 100.00);
+                    else p.ValorDesconto = p.ValorDesconto - p.ValorDesconto * (DescontoPercent / 100.00);
+                }
+            }
+        }
+
         /// <summary>
         /// Implementação do CompareTo, no qual percorre o nome do produto num loop for até acabar um dos nomes, se nao foi possivel verificar o if
         /// verifica o tamanho dos nomes

@@ -10,6 +10,14 @@ using System;
 
 namespace OProduto
 {
+    /* <summary>
+    * Purpose: Classe que define uma Marca
+    * Created by: Fabio
+    * Created on: 10/25/2023 2:24:12 PM
+    * </summary>
+    * <remarks></remarks>
+    * <example></example>
+    **/
     [Serializable]
     public class Marca : IComparable<Marca>
     {

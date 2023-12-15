@@ -14,6 +14,14 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace GereDados
 {
+    /* <summary>
+    * Purpose: Classe que faz a gestão dos dados sobre produtos
+    * Created by: Fabio
+    * Created on: 11/7/2023 10:31:21 PM
+    * </summary>
+    * <remarks></remarks>
+    * <example></example>
+    **/
     [Serializable]
     public class OsProdutos
     {
@@ -129,7 +137,7 @@ namespace GereDados
         /// <returnsProduto ou null</returns>
         public static Produto PegarProduto(string nome)
         {
-            foreach(Produto p in produtos)
+            foreach (Produto p in produtos)
             {
                 if (p.Nome == nome) return p;
             }

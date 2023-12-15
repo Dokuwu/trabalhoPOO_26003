@@ -15,6 +15,14 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace GereDados
 {
+    /* <summary>
+    * Purpose: Classe que faz a gestão dos dados sobre campanhas
+    * Created by: Fabio
+    * Created on: 11/11/2023 9:11:30 PM
+    * </summary>
+    * <remarks></remarks>
+    * <example></example>
+    **/
     [Serializable]
     public class AsCampanhas
     {
@@ -130,13 +138,7 @@ namespace GereDados
                 if (DateTime.Compare(DateTime.Now, c.DataFim) > 0) RemoverCampanha(c);
                 else
                 {
-                    foreach (Produto p in produtos)
-                    {
-                        if (c.Produtos.Contains(p)) { 
-                            if(p.ValorOriginal == p.ValorDesconto)p.ValorDesconto = p.ValorOriginal - p.ValorOriginal * (c.DescontoPercent / 100);
-                            else p.ValorDesconto = p.ValorDesconto - p.ValorDesconto * (c.DescontoPercent / 100);
-                        }
-                    }
+                    c.AtualizarPrecos(produtos);
                 }
 
             }

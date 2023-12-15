@@ -13,6 +13,14 @@ using System.Collections.Generic;
 
 namespace FrontEnd
 {
+    /* <summary>
+    * Purpose: Classe para realizar inputs e outputs
+    * Created by: Fabio
+    * Created on: 11/14/2023 5:51:14 PM
+    * </summary>
+    * <remarks></remarks>
+    * <example></example>
+    **/
     public class IO
     {
         #region PRODUTOS

@@ -15,6 +15,14 @@ using System.Text.RegularExpressions;
 
 namespace GereDados
 {
+    /* <summary>
+    * Purpose: Classe que faz a gestão dos dados sobre marcas
+    * Created by: Fabio
+    * Created on: 11/7/2023 10:31:11 PM
+    * </summary>
+    * <remarks></remarks>
+    * <example></example>
+    **/
     [Serializable]
     public class AsMarcas
     {

@@ -12,6 +12,14 @@ using System.Linq;
 
 namespace OProduto
 {
+    /* <summary>
+    * Purpose: Classe que define uma Categoria
+    * Created by: Fabio
+    * Created on: 10/25/2023 2:23:49 PM
+    * </summary>
+    * <remarks></remarks>
+    * <example></example>
+    **/
     [Serializable]
     public class Categoria : IComparable<Categoria>
     {

@@ -15,6 +15,14 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace GereDados
 {
+    /* <summary>
+    * Purpose: Classe que faz a gestão dos dados sobre funcionarios
+    * Created by: Fabio
+    * Created on: 11/7/2023 10:34:56 PM
+    * </summary>
+    * <remarks></remarks>
+    * <example></example>
+    **/
     [Serializable]
     public class OsFuncionarios
     {

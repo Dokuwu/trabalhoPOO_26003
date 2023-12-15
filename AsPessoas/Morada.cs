@@ -10,6 +10,14 @@ using System;
 
 namespace AsPessoas
 {
+    /* <summary>
+    * Purpose: Classe que define um uma Morada
+    * Created by: Fabio
+    * Created on: 10/27/2023 1:07:20 PM
+    * </summary>
+    * <remarks></remarks>
+    * <example></example>
+    **/
     [Serializable]
     public class Morada
     {
