@@ -6,6 +6,7 @@
 *	<description></description>
 **/
 
+using Excecao;
 using OProduto;
 using System;
 using System.Collections.Generic;
@@ -78,11 +79,11 @@ namespace GereDados
             }
             catch (OutOfMemoryException ex)
             {
-                throw;
+                throw new FaltaMemoriaCampanha("Falta de memoria para armazenar campanhas");
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
         /// <summary>
@@ -102,11 +103,11 @@ namespace GereDados
             }
             catch (IOException ex)
             {
-                throw;
+                throw new SemEspacoCampanha("Falta de espaço no disco para guardar campanhas");
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
         #endregion

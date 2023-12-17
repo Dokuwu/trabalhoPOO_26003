@@ -5,6 +5,7 @@
 *   <date>2023 11/7/2023 10:31:11 PM</date>
 *	<description></description>
 **/
+using Excecao;
 using OProduto;
 using System;
 using System.Collections.Generic;
@@ -77,11 +78,11 @@ namespace GereDados
             }
             catch (OutOfMemoryException ex)
             {
-                throw;
+                throw new SemEspacoMarca("Falta de espaço no disco para guardar marcas");
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
         /// <summary>
@@ -101,11 +102,11 @@ namespace GereDados
             }
             catch (IOException ex)
             {
-                throw;
+                throw new SemEspacoMarca("Falta de espaço no disco para guardar marcas");
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
         #endregion

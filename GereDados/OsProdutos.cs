@@ -5,6 +5,7 @@
 *   <date>2023 11/7/2023 10:31:21 PM</date>
 *	<description></description>
 **/
+using Excecao;
 using OProduto;
 using System;
 using System.Collections.Generic;
@@ -78,11 +79,11 @@ namespace GereDados
             }
             catch (OutOfMemoryException ex)
             {
-                throw;
+                throw new FaltaMemoriaProduto("Falta de memoria para armazenar produtos");
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
         /// <summary>
@@ -102,11 +103,11 @@ namespace GereDados
             }
             catch (IOException ex)
             {
-                throw;
+                throw new SemEspacoProduto("Falta de espaço no disco para guardar produtos");
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 

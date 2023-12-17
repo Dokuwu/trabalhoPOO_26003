@@ -35,6 +35,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\AsPessoas\bin\Debug\AsPessoas.dll</HintPath>
     </Reference>
+    <Reference Include="Excecao">
+      <HintPath>..\Excecao\bin\Debug\Excecao.dll</HintPath>
+    </Reference>
     <Reference Include="OProduto, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\OProduto\bin\Debug\OProduto.dll</HintPath>

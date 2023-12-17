@@ -34,6 +34,9 @@
     <Reference Include="AsPessoas">
       <HintPath>..\AsPessoas\bin\Debug\AsPessoas.dll</HintPath>
     </Reference>
+    <Reference Include="Excecao">
+      <HintPath>..\Excecao\bin\Debug\Excecao.dll</HintPath>
+    </Reference>
     <Reference Include="GereDados">
       <HintPath>..\GereDados\bin\Debug\GereDados.dll</HintPath>
     </Reference>

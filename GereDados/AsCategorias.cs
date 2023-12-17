@@ -6,6 +6,7 @@
 *	<description></description>
 **/
 
+using Excecao;
 using OProduto;
 using System;
 using System.Collections.Generic;
@@ -70,7 +71,7 @@ namespace GereDados
         {
             try
             {
-                if (!(File.Exists("Marcas.bin"))) return false;
+                if (!(File.Exists("Categorias.bin"))) return false;
                 Stream s = File.Open("Categorias.bin", FileMode.Open, FileAccess.Read);
                 if (s == null) return false;
                 BinaryFormatter b = new BinaryFormatter();
@@ -80,11 +81,11 @@ namespace GereDados
             }
             catch (OutOfMemoryException ex)
             {
-                throw;
+                throw new SemEspacoCategoria("Falta de espaço no disco para guardar categorias");
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
         /// <summary>
@@ -95,7 +96,7 @@ namespace GereDados
         {
             try
             {
-                if (!(File.Exists("Marcas.bin"))) return false;
+                if (!(File.Exists("Categorias.bin"))) return false;
                 Stream s = File.Open("Categorias.bin", FileMode.Open, FileAccess.Write);
                 if (s == null) return false;
                 BinaryFormatter b = new BinaryFormatter();
@@ -105,11 +106,11 @@ namespace GereDados
             }
             catch (IOException ex)
             {
-                throw;
+                throw new SemEspacoCategoria("Falta de espaço no disco para guardar categorias");
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 

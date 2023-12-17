@@ -7,6 +7,7 @@
 **/
 
 using AsPessoas;
+using Excecao;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -80,11 +81,11 @@ namespace GereDados
             }
             catch (OutOfMemoryException ex)
             {
-                throw;
+                throw new FaltaMemoriaCliente("Falta de memoria para armazenar clientes");
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
         /// <summary>
@@ -104,11 +105,11 @@ namespace GereDados
             }
             catch (IOException ex)
             {
-                throw;
+                throw new SemEspacoCliente("Falta de espaço no disco para guardar clientes");
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
         #endregion

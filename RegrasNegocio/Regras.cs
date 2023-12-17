@@ -6,6 +6,7 @@
 *	<description></description>
 **/
 using AsPessoas;
+using Excecao;
 using GereDados;
 using OProduto;
 using System;
@@ -70,7 +71,7 @@ namespace RegrasNegocio
                 if (OsProdutos.PegaDados()) return true;
                 return false;
             }
-            catch (OutOfMemoryException ex)
+            catch (FaltaMemoriaProduto ex)
             {
                 throw ex;
             }
@@ -91,7 +92,7 @@ namespace RegrasNegocio
                 if (OsProdutos.GuardaDados()) return true;
                 return false;
             }
-            catch (IOException ex)
+            catch (SemEspacoProduto ex)
             {
                 throw ex;
             }
@@ -190,6 +191,10 @@ namespace RegrasNegocio
                 if (AsCampanhas.PegaDados()) return true;
                 return false;
             }
+            catch (FaltaMemoriaCampanha ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -206,7 +211,7 @@ namespace RegrasNegocio
                 if (AsCampanhas.GuardaDados()) return true;
                 return false;
             }
-            catch (IOException ex)
+            catch (SemEspacoCampanha ex)
             {
                 throw ex;
             }
@@ -320,7 +325,7 @@ namespace RegrasNegocio
                 if (AsCategorias.PegaDados()) return true;
                 return false;
             }
-            catch (OutOfMemoryException ex)
+            catch (FaltaMemoriaCategoria ex)
             {
                 throw ex;
             }
@@ -340,7 +345,7 @@ namespace RegrasNegocio
                 if (AsCategorias.GuardaDados()) return true;
                 return false;
             }
-            catch (IOException ex)
+            catch (SemEspacoCategoria ex)
             {
                 throw ex;
             }
@@ -440,7 +445,7 @@ namespace RegrasNegocio
                 if (AsMarcas.PegaDados()) return true;
                 return false;
             }
-            catch (OutOfMemoryException ex)
+            catch (FaltaMemoriaMarca ex)
             {
                 throw ex;
             }
@@ -460,7 +465,7 @@ namespace RegrasNegocio
                 if (AsMarcas.GuardaDados()) return true;
                 return false;
             }
-            catch (IOException ex)
+            catch (SemEspacoMarca ex)
             {
                 throw ex;
             }
@@ -562,7 +567,7 @@ namespace RegrasNegocio
                 if (OsClientes.PegaDados()) return true;
                 return false;
             }
-            catch (OutOfMemoryException ex)
+            catch (FaltaMemoriaCliente ex)
             {
                 throw ex;
             }
@@ -582,7 +587,7 @@ namespace RegrasNegocio
                 if (OsClientes.GuardaDados()) return true;
                 return false;
             }
-            catch (OutOfMemoryException ex)
+            catch (SemEspacoCliente ex)
             {
                 throw ex;
             }
@@ -683,7 +688,7 @@ namespace RegrasNegocio
                 if (OsFuncionarios.PegaDados()) return true;
                 return false;
             }
-            catch (OutOfMemoryException ex)
+            catch (FaltaMemoriaFuncionario ex)
             {
                 throw ex;
             }
@@ -703,7 +708,7 @@ namespace RegrasNegocio
                 if (OsFuncionarios.GuardaDados()) return true;
                 return false;
             }
-            catch (IOException ex)
+            catch (SemEspacoFuncionario ex)
             {
                 throw ex;
             }
