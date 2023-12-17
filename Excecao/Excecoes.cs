@@ -12,6 +12,9 @@ namespace Excecao
 {
     #region PRODUTO
 
+    /// <summary>
+    /// Exceção para falta de memoria ram perante produto
+    /// </summary>
     public class FaltaMemoriaProduto : ApplicationException
     {
         public FaltaMemoriaProduto() { }
@@ -19,7 +22,9 @@ namespace Excecao
         public FaltaMemoriaProduto(string message) : base(message) { }
     }
 
-
+    /// <summary>
+    /// Exceção para falta de espaço no disco perante produto
+    /// </summary>
     public class SemEspacoProduto : ApplicationException
     {
         public SemEspacoProduto() { }
@@ -31,6 +36,9 @@ namespace Excecao
     #endregion
 
     #region MARCA
+    /// <summary>
+    /// Exceção para falta de memoria ram perante marca
+    /// </summary>
     public class FaltaMemoriaMarca : ApplicationException
     {
         public FaltaMemoriaMarca() { }
@@ -38,6 +46,9 @@ namespace Excecao
         public FaltaMemoriaMarca(string message) : base(message) { }
     }
 
+    /// <summary>
+    /// Exceção para falta de espaço no disco perante marca
+    /// </summary>
     public class SemEspacoMarca : ApplicationException
     {
         public SemEspacoMarca() { }
@@ -48,6 +59,9 @@ namespace Excecao
     #endregion
 
     #region CATEGORIA
+    /// <summary>
+    /// Exceção para falta de memoria ram perante categoria
+    /// </summary>
     public class FaltaMemoriaCategoria : ApplicationException
     {
         public FaltaMemoriaCategoria() { }
@@ -55,6 +69,9 @@ namespace Excecao
         public FaltaMemoriaCategoria(string message) : base(message) { }
     }
 
+    /// <summary>
+    /// Exceção para falta de espaço no disco perante categoria
+    /// </summary>
     public class SemEspacoCategoria : ApplicationException
     {
         public SemEspacoCategoria() { }
@@ -65,6 +82,9 @@ namespace Excecao
     #endregion
 
     #region CAMPANHA
+    /// <summary>
+    /// Exceção para falta de memoria ram perante campanha
+    /// </summary>
     public class FaltaMemoriaCampanha : ApplicationException
     {
         public FaltaMemoriaCampanha() { }
@@ -72,6 +92,9 @@ namespace Excecao
         public FaltaMemoriaCampanha(string message) : base(message) { }
     }
 
+    /// <summary>
+    /// Exceção para falta de espaço no disco perante campanha
+    /// </summary>
     public class SemEspacoCampanha : ApplicationException
     {
         public SemEspacoCampanha() { }
@@ -82,6 +105,9 @@ namespace Excecao
     #endregion
 
     #region FUNCIONARIO
+    /// <summary>
+    /// Exceção para falta de memoria ram perante funcionario
+    /// </summary>
     public class FaltaMemoriaFuncionario : ApplicationException
     {
         public FaltaMemoriaFuncionario() { }
@@ -89,6 +115,9 @@ namespace Excecao
         public FaltaMemoriaFuncionario(string message) : base(message) { }
     }
 
+    /// <summary>
+    /// Exceção para falta de espaço no disco perante funcionario
+    /// </summary>
     public class SemEspacoFuncionario : ApplicationException
     {
         public SemEspacoFuncionario() { }
@@ -99,6 +128,9 @@ namespace Excecao
     #endregion
 
     #region CLIENTE
+    /// <summary>
+    /// Exceção para falta de memoria ram perante cliente
+    /// </summary>
     public class FaltaMemoriaCliente : ApplicationException
     {
         public FaltaMemoriaCliente() { }
@@ -106,6 +138,9 @@ namespace Excecao
         public FaltaMemoriaCliente(string message) : base(message) { }
     }
 
+    /// <summary>
+    /// Exceção para falta de espaço no disco perante cliente
+    /// </summary>
     public class SemEspacoCliente : ApplicationException
     {
         public SemEspacoCliente() { }
