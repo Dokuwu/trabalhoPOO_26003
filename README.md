@@ -48,10 +48,18 @@ Gestão de uma loja online
 ## 5 Critérios de Avaliação
 
 • Qualidade do código produzido: estrutura da solução, nome de ficheiros, uso de bibliotecas (DLL), Norma CLS.
+
 • Organização e Implementação das Classes com recurso a Interfaces, Herança, classes abstractas, outras.
+
 • Qualidade dos algoritmos aplicados
+
 • Estruturas de dados exploradas
+
 • Tratamento adequado de excepções
+
 • Persistência de dados com recurso a ficheiros
+
 • Programação por camadas (NTier, MVC, outras)
+
 • Exploração de outras valências: Lambda Functions; LINQ; Windows Forms; WPF
+
