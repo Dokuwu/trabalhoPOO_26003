@@ -11,7 +11,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text.RegularExpressions;
 
 namespace GereDados
 {
@@ -67,12 +66,23 @@ namespace GereDados
         /// <returns></returns>
         public static bool PegaDados()
         {
-            if (!(File.Exists("Marcas.bin"))) return false;
-            Stream s = File.Open("Marcas.bin",FileMode.Open,FileAccess.Read);
-            BinaryFormatter b = new BinaryFormatter();
-            marcas = (List<Marca>)b.Deserialize(s);
-            s.Close();
-            return true;
+            try
+            {
+                if (!(File.Exists("Marcas.bin"))) return false;
+                Stream s = File.Open("Marcas.bin", FileMode.Open, FileAccess.Read);
+                BinaryFormatter b = new BinaryFormatter();
+                marcas = (List<Marca>)b.Deserialize(s);
+                s.Close();
+                return true;
+            }
+            catch (OutOfMemoryException ex)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
         /// <summary>
         /// Metodo que guarda as informações de uma lista num ficheiro
@@ -80,12 +90,23 @@ namespace GereDados
         /// <returns></returns>
         public static bool GuardaDados()
         {
-            if (!(File.Exists("Marcas.bin"))) return false;
-            Stream s = File.Open("Marcas.bin",FileMode.Open, FileAccess.Write);
-            BinaryFormatter b = new BinaryFormatter();
-            b.Serialize(s, marcas);
-            s.Close();
-            return true;
+            try
+            {
+                if (!(File.Exists("Marcas.bin"))) return false;
+                Stream s = File.Open("Marcas.bin", FileMode.Open, FileAccess.Write);
+                BinaryFormatter b = new BinaryFormatter();
+                b.Serialize(s, marcas);
+                s.Close();
+                return true;
+            }
+            catch (IOException ex)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
         #endregion
 

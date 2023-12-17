@@ -7,7 +7,6 @@
 **/
 
 using AsPessoas;
-using OProduto;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -38,7 +37,7 @@ namespace GereDados
         /// Construtor por omissão
         /// </summary>
         static OsClientes()
-        { 
+        {
             clientes = new List<Cliente>();
         }
 
@@ -70,12 +69,23 @@ namespace GereDados
         /// <returns></returns>
         public static bool PegaDados()
         {
-            if (!(File.Exists("Clientes.bin"))) return false;
-            Stream s = File.Open("Clientes.bin", FileMode.Open, FileAccess.Read);
-            BinaryFormatter b = new BinaryFormatter();
-            clientes = (List<Cliente>)b.Deserialize(s);
-            s.Close();
-            return true;
+            try
+            {
+                if (!(File.Exists("Clientes.bin"))) return false;
+                Stream s = File.Open("Clientes.bin", FileMode.Open, FileAccess.Read);
+                BinaryFormatter b = new BinaryFormatter();
+                clientes = (List<Cliente>)b.Deserialize(s);
+                s.Close();
+                return true;
+            }
+            catch (OutOfMemoryException ex)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
         /// <summary>
         /// Metodo que guarda as informações de uma lista num ficheiro
@@ -83,12 +93,23 @@ namespace GereDados
         /// <returns></returns>
         public static bool GuardaDados()
         {
-            if (!(File.Exists("Clientes.bin"))) return false;
-            Stream s = File.Open("Clientes.bin", FileMode.Open, FileAccess.Write);
-            BinaryFormatter b = new BinaryFormatter();
-            b.Serialize(s, clientes);
-            s.Close();
-            return true;
+            try
+            {
+                if (!(File.Exists("Clientes.bin"))) return false;
+                Stream s = File.Open("Clientes.bin", FileMode.Open, FileAccess.Write);
+                BinaryFormatter b = new BinaryFormatter();
+                b.Serialize(s, clientes);
+                s.Close();
+                return true;
+            }
+            catch (IOException ex)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
         #endregion
 

@@ -134,7 +134,7 @@ namespace TestesUnitarios
 
             // Assert
 
-            CollectionAssert.AreEqual(new List<bool> {true,true,false}, new List<bool> { b1,b2,b3}, "Stock errado");
+            CollectionAssert.AreEqual(new List<bool> {true,true,false}, new List<bool> { b1,b2,b3}, "Adição de produtos em excesso");
         }
     }
 }

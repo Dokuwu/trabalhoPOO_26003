@@ -68,13 +68,24 @@ namespace GereDados
         /// <returns></returns>
         public static bool PegaDados()
         {
-            if (!(File.Exists("Marcas.bin"))) return false;
-            Stream s = File.Open("Categorias.bin", FileMode.Open, FileAccess.Read);
-            if (s == null) return false;
-            BinaryFormatter b = new BinaryFormatter();
-            categorias = (List<Categoria>)b.Deserialize(s);
-            s.Close();
-            return true;
+            try
+            {
+                if (!(File.Exists("Marcas.bin"))) return false;
+                Stream s = File.Open("Categorias.bin", FileMode.Open, FileAccess.Read);
+                if (s == null) return false;
+                BinaryFormatter b = new BinaryFormatter();
+                categorias = (List<Categoria>)b.Deserialize(s);
+                s.Close();
+                return true;
+            }
+            catch (OutOfMemoryException ex)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
         /// <summary>
         /// Metodo que guarda as informações de uma lista num ficheiro
@@ -82,13 +93,24 @@ namespace GereDados
         /// <returns></returns>
         public static bool GuardaDados()
         {
-            if (!(File.Exists("Marcas.bin"))) return false;
-            Stream s = File.Open("Categorias.bin", FileMode.Open, FileAccess.Write);
-            if (s == null) return false;
-            BinaryFormatter b = new BinaryFormatter();
-            b.Serialize(s, categorias);
-            s.Close();
-            return true;
+            try
+            {
+                if (!(File.Exists("Marcas.bin"))) return false;
+                Stream s = File.Open("Categorias.bin", FileMode.Open, FileAccess.Write);
+                if (s == null) return false;
+                BinaryFormatter b = new BinaryFormatter();
+                b.Serialize(s, categorias);
+                s.Close();
+                return true;
+            }
+            catch (IOException ex)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         #endregion

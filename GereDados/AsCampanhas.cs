@@ -67,12 +67,23 @@ namespace GereDados
         /// <returns></returns>
         public static bool PegaDados()
         {
-            if (!(File.Exists("Campanhas.bin"))) return false;
-            Stream s = File.Open("Campanhas.bin", FileMode.Open, FileAccess.Read);
-            BinaryFormatter b = new BinaryFormatter();
-            campanhas = (List<Campanha>)b.Deserialize(s);
-            s.Close();
-            return true;
+            try
+            {
+                if (!(File.Exists("Campanhas.bin"))) return false;
+                Stream s = File.Open("Campanhas.bin", FileMode.Open, FileAccess.Read);
+                BinaryFormatter b = new BinaryFormatter();
+                campanhas = (List<Campanha>)b.Deserialize(s);
+                s.Close();
+                return true;
+            }
+            catch (OutOfMemoryException ex)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
         /// <summary>
         /// Metodo que guarda as informações de uma lista num ficheiro
@@ -80,12 +91,23 @@ namespace GereDados
         /// <returns></returns>
         public static bool GuardaDados()
         {
-            if (!(File.Exists("Campanhas.bin"))) return false;
-            Stream s = File.Open("Campanhas.bin", FileMode.Open, FileAccess.Write);
-            BinaryFormatter b = new BinaryFormatter();
-            b.Serialize(s, campanhas);
-            s.Close();
-            return true;
+            try
+            {
+                if (!(File.Exists("Campanhas.bin"))) return false;
+                Stream s = File.Open("Campanhas.bin", FileMode.Open, FileAccess.Write);
+                BinaryFormatter b = new BinaryFormatter();
+                b.Serialize(s, campanhas);
+                s.Close();
+                return true;
+            }
+            catch (IOException ex)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
         #endregion
 
