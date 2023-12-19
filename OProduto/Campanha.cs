@@ -12,14 +12,14 @@ using System.Linq;
 
 namespace OProduto
 {
-    /* <summary>
-    * Purpose: Classe que define uma Campanha
-    * Created by: Fabio
-    * Created on: 10/30/2023 12:33:59 PM
-    * </summary>
-    * <remarks></remarks>
-    * <example></example>
-    **/
+    /// <summary>
+    /// Purpose: Classe que define uma Campanha
+    /// Created by: Fabio
+    /// Created on: 10/30/2023 12:33:59 PM
+    /// </summary>
+    /// <remarks></remarks>
+    /// <example></example>
+    
     [Serializable]
     public class Campanha : IComparable<Campanha>
     {

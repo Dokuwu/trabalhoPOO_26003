@@ -16,14 +16,14 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace GereDados
 {
-    /* <summary>
-    * Purpose: Classe que faz a gestão dos dados sobre campanhas
-    * Created by: Fabio
-    * Created on: 11/11/2023 9:11:30 PM
-    * </summary>
-    * <remarks></remarks>
-    * <example></example>
-    **/
+    /// <summary>
+    /// Purpose: Classe que faz a gestão dos dados sobre campanhas
+    /// Created by: Fabio
+    /// Created on: 11/11/2023 9:11:30 PM
+    /// </summary>
+    /// <remarks></remarks>
+    /// <example></example>
+    
     [Serializable]
     public class AsCampanhas
     {

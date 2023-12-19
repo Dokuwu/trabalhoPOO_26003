@@ -10,14 +10,14 @@ using System;
 
 namespace AsPessoas
 {
-    /* <summary>
-    * Purpose: Classe que define um uma Pessoa
-    * Created by: Fabio
-    * Created on: 11/2/2023 2:35:01 PM
-    * </summary>
-    * <remarks></remarks>
-    * <example></example>
-    **/
+    /// <summary>
+    /// Purpose: Classe que define um uma Pessoa
+    /// Created by: Fabio
+    /// Created on: 11/2/2023 2:35:01 PM
+    /// </summary>
+    /// <remarks></remarks>
+    /// <example></example>
+    
     [Serializable]
     public class Pessoa
     {

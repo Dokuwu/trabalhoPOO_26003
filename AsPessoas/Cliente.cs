@@ -13,14 +13,14 @@ using System.Linq;
 
 namespace AsPessoas
 {    
-    /* <summary>
-    * Purpose: Classe que define um Cliente
-    * Created by: Fabio
-    * Created on: 10/25/2023 2:40:50 PM
-    * </summary>
-    * <remarks></remarks>
-    * <example></example>
-    **/
+    /// <summary>
+    /// Purpose: Classe que define um Cliente
+    /// Created by: Fabio
+    /// Created on: 10/25/2023 2:40:50 PM
+    /// </summary>
+    /// <remarks></remarks>
+    /// <example></example>
+    
     [Serializable]
     public class Cliente : Pessoa, IComparable<Cliente>
     {

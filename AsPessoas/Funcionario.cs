@@ -10,14 +10,14 @@ using System;
 
 namespace AsPessoas
 {
-    /* <summary>
-    * Purpose: Classe que define um Funcionario
-    * Created by: Fabio
-    * Created on: 11/3/2023 7:51:46 PM
-    * </summary>
-    * <remarks></remarks>
-    * <example></example>
-    **/
+    /// <summary>
+    /// Purpose: Classe que define um Funcionario
+    /// Created by: Fabio
+    /// Created on: 11/3/2023 7:51:46 PM
+    /// </summary>
+    /// <remarks></remarks>
+    /// <example></example>
+    
     [Serializable]
     public class Funcionario : Pessoa, IComparable<Funcionario>
     {

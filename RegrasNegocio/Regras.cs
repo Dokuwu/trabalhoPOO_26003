@@ -15,14 +15,14 @@ using System.IO;
 
 namespace RegrasNegocio
 {
-    /* <summary>
-    * Purpose: Classe que define as regras de negocio
-    * Created by: Fabio
-    * Created on: 12/4/2023 12:45:32 PM
-    * </summary>
-    * <remarks></remarks>
-    * <example></example>
-    **/
+    /// <summary>
+    /// Purpose: Classe que define as regras de negocio
+    /// Created by: Fabio
+    /// Created on: 12/4/2023 12:45:32 PM
+    /// </summary>
+    /// <remarks></remarks>
+    /// <example></example>
+    
     public class Regras
     {
         #region ATRIBUTOS
